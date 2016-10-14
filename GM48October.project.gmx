@@ -87,6 +87,7 @@
   <rooms name="rooms">
     <room>rooms\rm_MainMenu</room>
     <room>rooms\rm_GameWorld</room>
+    <room>rooms\rm_GameOver</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
