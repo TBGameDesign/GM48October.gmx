@@ -30,6 +30,8 @@ month=1 // for using time
 counter=0 // time counter
 eachMonth=15 // ticks per month
 tp_change=100 // third party change of state randomiser
+makeDeal=0 // state machine for making deals
+investmentCash=1000000 // starting cash
 randomize()
 
 for (n=0;n&lt;10000;n+=1) // a nice bank of possibilities
@@ -270,6 +272,8 @@ for (nn=0;nn&lt;10000;nn+=1)
     percentMaxRisk[nn]=(thirdPartyArisk[nn]+thirdPartyBrisk[nn]+thirdPartyCrisk[nn])*5
     
     }
+    
+
 </string>
           </argument>
         </arguments>
@@ -300,6 +304,45 @@ if keyboard_check_pressed(vk_right)
 if keyboard_check_pressed(vk_left) 
     {
     if n&gt;0 n-=1
+    }
+    
+if keyboard_check_pressed(vk_enter)
+    {
+    game_restart()
+    }
+    
+if keyboard_check_pressed(vk_space)
+    {
+    make_deal=1
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// check and update deals made
+if makeDeal=1
+    {
+    // ..where 'i' is a successful investment deal (array to be made soon)
+    // timestamp[i] // when did it begin?
+    // invested[i] // how much was it?
+    // percentage[i] // whats our cut?
+    // months[i] // for how long ?
     }
 </string>
           </argument>
@@ -340,6 +383,9 @@ draw_text(200,0,string(numberOfNames))
 
 
 draw_text(0,200,"MONTH: "+string(month)+" of 120")
+draw_text(0,230,"CASH $"+string(investmentCash))
+
+draw_text(0,300,"Arrow Keys to cycle current deals.. Space to make a deal, Enter to restart test")
 
 //n=0;
     draw_text(0,0,"Investee Name: "+string(investeeName[n]))
