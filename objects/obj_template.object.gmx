@@ -28,7 +28,7 @@
             <string>/// Template layout
 month=1 // for using time
 counter=0 // time counter
-eachMonth=1 // ticks per month
+eachMonth=10 // ticks per month (seconds)
 tp_change=777 // third party change of state randomiser
 makeDeal=0 // state machine for making deals
 investmentCash=1000000 // starting cash
