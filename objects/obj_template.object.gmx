@@ -28,6 +28,8 @@
             <string>/// Template layout
 month=0 // for using time
 counter=0 // time counter
+tp_change=100 // third party change of state randomiser
+randomize()
 
 for (n=0;n&lt;10000;n+=1) // a nice bank of possibilities
     {
@@ -206,26 +208,67 @@ if counter&gt;=30*30 // one month
     counter=0
     }
     
+if 1=round(random(tp_change))
+tp_env_level=clamp(round(random(3)),0,2)
+if 1=round(random(tp_change))
+tp_ind_level=clamp(round(random(3)),0,2)
+if 1=round(random(tp_change))
+tp_reg_level=clamp(round(random(3)),0,2)
+if 1=round(random(tp_change))
+tp_res_level=clamp(round(random(3)),0,2)
+if 1=round(random(tp_change))
+tp_sci_level=clamp(round(random(3)),0,2) 
+if 1=round(random(tp_change))
+tp_tec_level=clamp(round(random(3)),0,2)  
+if 1=round(random(tp_change))
+tp_tra_level=clamp(round(random(3)),0,2)
+if 1=round(random(tp_change))
+tp_med_level=clamp(round(random(3)),0,2) 
+if 1=round(random(tp_change))
+tp_pol_level=clamp(round(random(3)),0,2) 
+if 1=round(random(tp_change))
+tp_eco_level=clamp(round(random(3)),0,2)   
 
-tp_env_level=lerp(tp_env_level,round(random(2)),sin(degtorad((counter*12)+(0*36)))) 
+//update all businesses with this info...
 
-tp_ind_level=lerp(tp_ind_level,round(random(2)),sin(degtorad((counter*12)+(1*36)))) 
-
-tp_reg_level=lerp(tp_reg_level,round(random(2)),sin(degtorad((counter*12)+(2*36)))) 
-
-tp_res_level=lerp(tp_res_level,round(random(2)),sin(degtorad((counter*12)+(3*36)))) 
-
-tp_sci_level=lerp(tp_sci_level,round(random(2)),sin(degtorad((counter*12)+(4*36))))  
-
-tp_tec_level=lerp(tp_tec_level,round(random(2)),sin(degtorad((counter*12)+(5*36))))  
-
-tp_tra_level=lerp(tp_tra_level,round(random(2)),sin(degtorad((counter*12)+(6*36))))  
-
-tp_med_level=lerp(tp_med_level,round(random(2)),sin(degtorad((counter*12)+(7*36))))  
-
-tp_pol_level=lerp(tp_pol_level,round(random(2)),sin(degtorad((counter*12)+(8*36))))  
-
-tp_eco_level=lerp(tp_eco_level,round(random(2)),sin(degtorad((counter*12)+(9*36))))   
+for (nn=0;nn&lt;10000;nn+=1)
+    {
+    if thirdPartyA[nn]=tp_env thirdPartyArisk[nn]=tp_env_level
+    if thirdPartyA[nn]=tp_ind thirdPartyArisk[nn]=tp_ind_level
+    if thirdPartyA[nn]=tp_reg thirdPartyArisk[nn]=tp_reg_level
+    if thirdPartyA[nn]=tp_res thirdPartyArisk[nn]=tp_res_level
+    if thirdPartyA[nn]=tp_sci thirdPartyArisk[nn]=tp_sci_level
+    if thirdPartyA[nn]=tp_tec thirdPartyArisk[nn]=tp_tec_level
+    if thirdPartyA[nn]=tp_tra thirdPartyArisk[nn]=tp_tra_level
+    if thirdPartyA[nn]=tp_med thirdPartyArisk[nn]=tp_med_level
+    if thirdPartyA[nn]=tp_pol thirdPartyArisk[nn]=tp_pol_level
+    if thirdPartyA[nn]=tp_eco thirdPartyArisk[nn]=tp_eco_level
+    
+    if thirdPartyB[nn]=tp_env thirdPartyBrisk[nn]=tp_env_level
+    if thirdPartyB[nn]=tp_ind thirdPartyBrisk[nn]=tp_ind_level
+    if thirdPartyB[nn]=tp_reg thirdPartyBrisk[nn]=tp_reg_level
+    if thirdPartyB[nn]=tp_res thirdPartyBrisk[nn]=tp_res_level
+    if thirdPartyB[nn]=tp_sci thirdPartyBrisk[nn]=tp_sci_level
+    if thirdPartyB[nn]=tp_tec thirdPartyBrisk[nn]=tp_tec_level
+    if thirdPartyB[nn]=tp_tra thirdPartyBrisk[nn]=tp_tra_level
+    if thirdPartyB[nn]=tp_med thirdPartyBrisk[nn]=tp_med_level
+    if thirdPartyB[nn]=tp_pol thirdPartyBrisk[nn]=tp_pol_level
+    if thirdPartyB[nn]=tp_eco thirdPartyBrisk[nn]=tp_eco_level
+    
+    if thirdPartyC[nn]=tp_env thirdPartyCrisk[nn]=tp_env_level
+    if thirdPartyC[nn]=tp_ind thirdPartyCrisk[nn]=tp_ind_level
+    if thirdPartyC[nn]=tp_reg thirdPartyCrisk[nn]=tp_reg_level
+    if thirdPartyC[nn]=tp_res thirdPartyCrisk[nn]=tp_res_level
+    if thirdPartyC[nn]=tp_sci thirdPartyCrisk[nn]=tp_sci_level
+    if thirdPartyC[nn]=tp_tec thirdPartyCrisk[nn]=tp_tec_level
+    if thirdPartyC[nn]=tp_tra thirdPartyCrisk[nn]=tp_tra_level
+    if thirdPartyC[nn]=tp_med thirdPartyCrisk[nn]=tp_med_level
+    if thirdPartyC[nn]=tp_pol thirdPartyCrisk[nn]=tp_pol_level
+    if thirdPartyC[nn]=tp_eco thirdPartyCrisk[nn]=tp_eco_level
+    
+    percentMaxRisk[nn]=(thirdPartyArisk[nn]+thirdPartyBrisk[nn]+thirdPartyCrisk[nn])*5
+    
+    }
 </string>
           </argument>
         </arguments>
@@ -316,7 +359,11 @@ draw_text(0,200,"month: "+string(month))
     if thirdPartyCrisk[n]=2 draw_set_color(c_red) // 0 is green , 1 is orange, 2 is red
     draw_text(500,80,"Third Party C: "+string(thirdPartyC[n]))
     // end of business idea
-
+    draw_set_color(c_blue)
+    draw_text(0,100,"DEBUG INFO:")
+    draw_text(0,120,"Max percentage  : "+string(percentMax[n])+"%")
+    draw_text(0,130,"Max Risk Based% : "+string(percentMaxRisk[n]+percentMax[n])+"%")
+    
 
 </string>
           </argument>
