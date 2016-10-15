@@ -50,16 +50,53 @@ for (n=0;n&lt;10000;n+=1) // a nice bank of possibilities
     
     // can be random range based on level
     percentAmount[n]=0 // percentage amount
-    percentageMax[n]=0 // maximum percentage
-    
+    percentMax[n]=0 // maximum percentage
+    percentMaxRisk[n]=0 // this is calucalted by looking at 3rd party elements and acting as a higher limit
+    // ** NOTES
+    // percentMaxRisk = thirdPartyArisk[n]*5 + thirdPartyBrisk[n]*5 + thirdPartyCrisk[n]*5 = a possible additional 30% given away depending of riskyness
+    // range(percentAmount , percentMax+percentMaxRisk)
+    // ** END OF NOTES
     }
     
-// we need then to construct it together
-
-// random name, business details, asking amount, percentage
 
 
+// Third Partys Array setup.. These are the kind of General things a business could be affected by
 
+for (m=0;m&lt;100;m+=1)
+    {
+    thirdParty[m]=""
+    thirdPartylevel[m]=0
+    }
+
+thirdParty[1]="Environment" // if the environment is poor, it can affect the ability to get natural resources
+thirdPartylevel[1]=0 // 0 is green, 1 is orange, 2 is red
+
+thirdParty[2]="Industry" // if industry is poor, it can affect the ability to get mass manufacturing done
+thirdPartylevel[2]=0 // 0 is green, 1 is orange, 2 is red
+
+thirdParty[3]="Regulation" // if regulation is poor, it can affect the ability to do anything food or animal related
+thirdPartylevel[3]=0 // 0 is green, 1 is orange, 2 is red
+
+thirdParty[4]="Resources" // if rousources are poor, it can affect the ability to produce anything inventive
+thirdPartylevel[4]=0 // 0 is green, 1 is orange, 2 is red
+
+thirdParty[5]="Science" // if science is poor, it can affect the ability to prove a new idea or lucrative venture
+thirdPartylevel[5]=0 // 0 is green, 1 is orange, 2 is red
+
+thirdParty[6]="Technology" // if technology is poor, it can affect the ability to run a small-medium business
+thirdPartylevel[6]=0 // 0 is green, 1 is orange, 2 is red
+
+thirdParty[7]="Transport" // if transport is poor, it can affect the logistics of a business dependant on transportation of goods
+thirdPartylevel[7]=0 // 0 is green, 1 is orange, 2 is red
+
+thirdParty[8]="Media" // if media is poor, it can affect the ability to advertise or market a business that is media focussed
+thirdPartylevel[8]=0 // 0 is green, 1 is orange, 2 is red
+
+thirdParty[9]="Politics" // if politics is poor, it can affect the ability to negotiate
+thirdPartylevel[9]=0 // 0 is green, 1 is orange, 2 is red
+
+thirdParty[10]="Economy" // if the economy is poor, it can affect the ability to make profit each year that it is so.
+thirdPartylevel[10]=0 // 0 is green, 1 is orange, 2 is red
 </string>
           </argument>
         </arguments>
