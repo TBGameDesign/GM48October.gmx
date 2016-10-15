@@ -83,6 +83,7 @@
       <object>objects\obj_Effect2</object>
       <object>objects\obj_Effect3</object>
     </objects>
+    <object>objects\obj_template</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_MainMenu</room>
