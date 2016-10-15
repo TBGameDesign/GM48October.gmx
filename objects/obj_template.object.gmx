@@ -44,6 +44,8 @@ for (n=0;n&lt;10000;n+=1) // a nice bank of possibilities
     
     // the following are tied
     dealt[n]=false
+    dealtAmount[n]=0 
+    dealtPercentage[n]=0
     investeeName[n]=""
     investementLevel[n]=0 // the level (range of investment)
     businessName[n]="" // buisness name
@@ -353,7 +355,7 @@ if keyboard_check_pressed(vk_left)
     if n&gt;0 n-=1
     }
     
-if keyboard_check_pressed(vk_enter)
+if keyboard_check_pressed(ord('R'))
     {
     game_restart()
     }
@@ -388,9 +390,9 @@ if keyboard_check_pressed(vk_space)
           <argument>
             <kind>1</kind>
             <string>/// check and update deals made
-if makeDeal=1 and dealt[n]=false
+if makeDeal=1 and dealt[n]=false and investeeName[n]!=""
     {
-    getDeal=get_string("Do you want to make a deal? (Yes/No)","Yes")
+    getDeal=get_string("Do you want to make a deal? (Yes/No) (say No to negotiate)","Y/N")
     if getDeal="Yes" or getDeal="Y"
         {
         // accepted main deal
@@ -400,12 +402,14 @@ if makeDeal=1 and dealt[n]=false
         percentage[dealsMade]=percentAmount[n] // whats our cut?
         term[dealsMade]=businessYears[n]*12 // number of months
         investmentCash-=askingAmount[n] // reduce cash u have
+        dealtAmount[n]=askingAmount[n]
+        dealtPercentage[n]=percentAmount[n]
         dealt[n]=true // for the investee (flag)
         getDeal=""
         }
     if getDeal="No" or getDeal="N"
         {
-        negotiateDeal=get_string("Do you want to negotiate a deal? (Yes/No)","Yes")
+        negotiateDeal=get_string("Do you want to negotiate a deal? (Yes/No)","Y/N")
         }   
     if negotiateDeal="Yes" or negotiateDeal="Y"
         {
@@ -413,7 +417,7 @@ if makeDeal=1 and dealt[n]=false
         amount=get_string("How much are you asking for?",string(askingAmount[n]))
         percent=get_string("For what Percentage?",string(percentAmount[n]))
         // now check to see if it is in range...
-        if real(percent)&gt;=percentAmount[n] and  percent&lt;=percentMax[n] and amount&lt;=real(askingAmount[n])+(real(askingAmount[n])*(percentAmount[n]/100))
+        if real(percent)&gt;=percentAmount[n] and  percent&lt;=percentMaxRisk[n]+percentMax[n] and amount&gt;=real(askingAmount[n])+(real(askingAmount[n])*(percentAmount[n]/100))
             {
             // agree the deal
             dealsMade+=1
@@ -422,32 +426,27 @@ if makeDeal=1 and dealt[n]=false
             percentage[dealsMade]=percent // whats our cut?
             term[dealsMade]=businessYears[n]*12 // number of months
             investmentCash-=amount // reduce cash u have
+            dealtAmount[n]=amount
+            dealtPercentage[n]=percent
             dealt[n]=true // for the investee (flag)
             getDeal=""
             //
             }
+        else
+            {
+            // NO DEAL
+            makeDeal=0
+            }
         
         }
-    // ..where 'i' is a successful investment deal (array to be made soon)
-    // timestamp[i] // when did it begin?
-    // invested[i] // how much was it?
-    // percentage[i] // whats our cut?
-    // months[i] // for how long ?
-    makeDeal=2
+
+    }
+else
+    {
+    makeDeal=0
     }
     
-draw_text(0,200,"MONTH: "+string(month)+" of 120")
-draw_text(0,230,"CASH $"+string(investmentCash))
 
-draw_text(0,300,"Arrow Keys to cycle current deals.. Space to make a deal, Enter to restart test")
-
-//n=0;
-    draw_text(0,0,"Investee Name: "+string(investeeName[n]))
-    draw_text(0,10,"Business Level: "+string(investementLevel[n]))
-    draw_text(0,20,"Business Name: "+string(businessName[n]))
-    draw_text(0,30,"Business Descritption: "+string(businessDesc[n]))
-    draw_text(0,40,"Term Time: "+string(businessYears[n])+" years")
-    draw_text(0,60,"Asking amount is $"+string(askingAmount[n])+" for "+string(percentAmount[n])+"%")
 </string>
           </argument>
         </arguments>
@@ -489,9 +488,11 @@ draw_text(200,0,string(numberOfNames))
 draw_text(0,200,"MONTH: "+string(month)+" of 120")
 draw_text(0,230,"CASH $"+string(investmentCash))
 
-draw_text(0,300,"Arrow Keys to cycle current deals.. Space to make a deal, Enter to restart test")
+draw_text(0,300,"Arrow Keys to cycle current deals.. Space to make a deal, Press 'R' to restart test")
 
-//n=0;
+if dealt[n]=false
+    {
+
     draw_text(0,0,"Investee Name: "+string(investeeName[n]))
     draw_text(0,10,"Business Level: "+string(investementLevel[n]))
     draw_text(0,20,"Business Name: "+string(businessName[n]))
@@ -512,8 +513,12 @@ draw_text(0,300,"Arrow Keys to cycle current deals.. Space to make a deal, Enter
     if thirdPartyCrisk[n]=2 draw_set_color(c_red) // 0 is green , 1 is orange, 2 is red
     draw_text(500,80,"Third Party C: "+string(thirdPartyC[n]))
     // end of business idea
-
-    
+    }
+else
+    {
+    draw_text(0,0,"Deal Made with "+string(investeeName[n]))
+    draw_text(0,10,"Invested : "+string(dealtAmount[n])+" for "+string(dealtPercentage[n])+"%")
+    }
 
 </string>
           </argument>
