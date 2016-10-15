@@ -97,6 +97,99 @@ thirdPartylevel[9]=0 // 0 is green, 1 is orange, 2 is red
 
 thirdParty[10]="Economy" // if the economy is poor, it can affect the ability to make profit each year that it is so.
 thirdPartylevel[10]=0 // 0 is green, 1 is orange, 2 is red
+
+
+// DATA
+// separate with one ';' , a double ';;' at the end works to finalise the names
+n1="Bob McDoosh;Sandra Gift;Jack Middleton;Jim Olay;Stephanie Allen;Louise French;John Pollock;Barbara Jackson;Colin Ramey;Geoff Hunt;Carl Anderson;Frederic Barton;"
+n2="Lizzy Cook;Peter Lewinski;Andy Lockhart;Brian Pattison;Claire Wright;Dennis Iams;Eugene Salas;Fiona Wilson;Gary Moore;Hilary Macdonald;Ian Wilcox;Jenny Timpson;"
+n3="Kathy Morrison;Liam Nixon;Maria Mullen;Norman Day;Paul Wild;Ray Walton;Samantha Crawford;Travis Ford;Vally Lovejoy;William Buck;Wendy Hunter;Jill Pesci;Oli Smith;"
+n4="Phil Rich;Grace Simpleton;Rob Razmex;Tez Bergens;Guy Woods;Solemn Ellis;Ivan Moles;Craig Hicks;Jimmy Silvera;Ellen Boyle;Peter McKnight;Micheal Donaldson;Tracy Mills;;"
+names=n1+n2+n3+n4 // condense
+
+// read in names from the above string
+var marker=1
+var i=0
+for (a=1;a&lt;string_length(names);a+=1)
+    {
+    if string_char_at(names,a)=";"  {name[i]=string_copy(names,marker,a-marker);marker=a+1;i++}
+    numberOfNames=i
+    }
+    
+// CONSTRUCTOR
+
+// Name, InvLevel, BusName, BusDesc, BusYears, tpA, tpAr, tpB, tpBr, tpC, tpCr   
+cName=name[round(random(numberOfNames))]    
+    
+/*
+    name[0]="" // name of person &lt;- this can be random from a list
+    
+    // the following are tied
+    investementLevel[n]=0 // the level (range of investment)
+    businessName[n]="" // buisness name
+    businessDesc[n]="" // description
+    businessYears[n]=0 // can be 1,3 or 5 years 
+    thirdPartyA[n]=""
+    thirdPartyArisk[n]=0 // 0 is green , 1 is orange, 2 is red
+    thirdPartyB[n]=""
+    thirdPartyBrisk[n]=0 // 0 is green , 1 is orange, 2 is red
+    thirdPartyC[n]=""
+    thirdPartyCrisk[n]=0 // 0 is green , 1 is orange, 2 is red
+    // end of tied
+    
+    // can be random range based on level
+    askingAmount[n]=0 // amount needed
+    
+    // can be random range based on level
+    percentAmount[n]=0 // percentage amount
+    percentMax[n]=0 // maximum percentage
+    percentMaxRisk[n]=0 // this is calucalted by looking at 3rd party elements and acting as a higher limit
+    // ** NOTES
+    // percentMaxRisk = thirdPartyArisk[n]*5 + thirdPartyBrisk[n]*5 + thirdPartyCrisk[n]*5 = a possible additional 30% given away depending of riskyness
+    // range(percentAmount , percentMax+percentMaxRisk)
+    // ** END OF NOTES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_color(c_white)
+for (n=0;n&lt;50;n+=1)
+    {
+    draw_text(0,15*n,name[n]+"  "+string(n+1))
+    }
+draw_text(200,0,string(numberOfNames))
 </string>
           </argument>
         </arguments>

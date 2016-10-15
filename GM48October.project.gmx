@@ -83,9 +83,12 @@
       <object>objects\obj_Effect2</object>
       <object>objects\obj_Effect3</object>
     </objects>
-    <object>objects\obj_template</object>
+    <objects name="Management">
+      <object>objects\obj_template</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_testing</room>
     <room>rooms\rm_MainMenu</room>
     <room>rooms\rm_GameWorld</room>
     <room>rooms\rm_GameOver</room>
