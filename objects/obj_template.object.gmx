@@ -417,17 +417,17 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!=""
         amount=get_string("How much are you asking for?",string(askingAmount[n]))
         percent=get_string("For what Percentage?",string(percentAmount[n]))
         // now check to see if it is in range...
-        if real(percent)&gt;=percentAmount[n] and  percent&lt;=percentMaxRisk[n]+percentMax[n] and amount&gt;=real(askingAmount[n])+(real(askingAmount[n])*(percentAmount[n]/100))
+        if real(percent)&gt;=percentAmount[n] and  real(percent)&lt;=percentMaxRisk[n]+percentMax[n] and real(amount)&gt;=(askingAmount[n]) and real(amount)&lt;=((askingAmount[n])+((askingAmount[n])*(percentAmount[n]/100)))
             {
             // agree the deal
             dealsMade+=1
             timeStamp[dealsMade]=month
-            invested[dealsMade]=amount
-            percentage[dealsMade]=percent // whats our cut?
+            invested[dealsMade]=real(amount)
+            percentage[dealsMade]=real(percent) // whats our cut?
             term[dealsMade]=businessYears[n]*12 // number of months
-            investmentCash-=amount // reduce cash u have
-            dealtAmount[n]=amount
-            dealtPercentage[n]=percent
+            investmentCash-=real(amount) // reduce cash u have
+            dealtAmount[n]=real(amount)
+            dealtPercentage[n]=real(percent)
             dealt[n]=true // for the investee (flag)
             getDeal=""
             //
