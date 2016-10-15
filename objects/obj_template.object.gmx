@@ -120,6 +120,30 @@ for (a=1;a&lt;string_length(names);a+=1)
     numberOfNames=i
     }
     
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Create businesses
+
 // CONSTRUCTOR
 
 // **** BUSINESS 0 **** 
@@ -170,17 +194,36 @@ n=1;
     percentMax[n]=35 // maximum percentage
     percentMaxRisk[n]=(thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n])*5 // this is calucalted by looking at 3rd party elements and acting as a higher limit
 
+// TERRY WE NEED ME OF THESE :)
+// **** BUSINESS 2 - BLANK ****
 
-
-
-
-
-
-
-
-
-n=0; // used for indexing
-
+n=2; // change this first
+    investeeName[n]=name[round(random(numberOfNames))]    
+    investementLevel[n]=1 // Level 1, the basics
+    businessName[n]="Business" // buisness name
+    businessDesc[n]="A sentence to describe it (about 25 words max)" // description
+    businessYears[n]=1 // can be 1,3 or 5 years 
+    thirdPartyA[n]=tp_env
+    thirdPartyArisk[n]=tp_env_level // see init for definitions
+    
+    thirdPartyB[n]=tp_eco
+    thirdPartyBrisk[n]=tp_eco_level // 0 is green , 1 is orange, 2 is red
+    
+    thirdPartyC[n]=tp_tra
+    thirdPartyCrisk[n]=tp_tra_level // 0 is green , 1 is orange, 2 is red
+    // end of business idea
+    
+    // can be random range based on level
+    askingAmount[n]=round(random_range(20,30))*(1000*investementLevel[n]) // amount needed change the 20,30 to something applicable (in thousands of dollars)
+    
+    // percentage system
+    percentAmount[n]=10 // percentage amount
+    percentMax[n]=35 // maximum percentage
+    // Below is a calculation formula, keep as is.
+    percentMaxRisk[n]=(thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n])*5 // this is calucalted by looking at 3rd party elements and acting as a higher limit
+    
+// Do not alter anything Below..    
+n=0; // used for indexing do not remove
 </string>
           </argument>
         </arguments>
