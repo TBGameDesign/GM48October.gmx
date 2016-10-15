@@ -32,6 +32,9 @@ eachMonth=15 // ticks per month
 tp_change=100 // third party change of state randomiser
 makeDeal=0 // state machine for making deals
 investmentCash=1000000 // starting cash
+getDeal=""  // for replying to deal option
+negotiateDeal="" // for replying to negotiate option
+dealsMade=0
 randomize()
 
 for (n=0;n&lt;10000;n+=1) // a nice bank of possibilities
@@ -356,8 +359,13 @@ if keyboard_check_pressed(vk_enter)
     
 if keyboard_check_pressed(vk_space)
     {
-    make_deal=1
+    makeDeal=1
     }
+    
+
+    
+    
+    
 </string>
           </argument>
         </arguments>
@@ -381,12 +389,42 @@ if keyboard_check_pressed(vk_space)
             <string>/// check and update deals made
 if makeDeal=1
     {
+    getDeal=get_string("Do you want to make a deal? (Yes/No)","Yes")
+    if getDeal="Yes" or getDeal="Y"
+        {
+        // accepted main deal
+        dealsMade+=1
+        timeStamp[dealsMade]=month
+        invested[dealsMade]=askingAmount[n]
+        percentage[dealsMade]=percentAmount[n] // whats our cut?
+        term[dealsMade]=businessYears[n]*12 // number of months
+        getDeal=""
+        }
+    if getDeal="No" or getDeal="N"
+        {
+        negotiateDeal=get_string("Do you want to negotiate a deal? (Yes/No)","Yes")
+        }   
+        
     // ..where 'i' is a successful investment deal (array to be made soon)
     // timestamp[i] // when did it begin?
     // invested[i] // how much was it?
     // percentage[i] // whats our cut?
     // months[i] // for how long ?
+    makeDeal=2
     }
+    
+draw_text(0,200,"MONTH: "+string(month)+" of 120")
+draw_text(0,230,"CASH $"+string(investmentCash))
+
+draw_text(0,300,"Arrow Keys to cycle current deals.. Space to make a deal, Enter to restart test")
+
+//n=0;
+    draw_text(0,0,"Investee Name: "+string(investeeName[n]))
+    draw_text(0,10,"Business Level: "+string(investementLevel[n]))
+    draw_text(0,20,"Business Name: "+string(businessName[n]))
+    draw_text(0,30,"Business Descritption: "+string(businessDesc[n]))
+    draw_text(0,40,"Term Time: "+string(businessYears[n])+" years")
+    draw_text(0,60,"Asking amount is $"+string(askingAmount[n])+" for "+string(percentAmount[n])+"%")
 </string>
           </argument>
         </arguments>
