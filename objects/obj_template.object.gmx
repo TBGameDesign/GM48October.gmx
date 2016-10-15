@@ -29,7 +29,7 @@
 month=1 // for using time
 counter=0 // time counter
 eachMonth=15 // ticks per month
-tp_change=100 // third party change of state randomiser
+tp_change=777 // third party change of state randomiser
 makeDeal=0 // state machine for making deals
 investmentCash=1000000 // starting cash
 getDeal=""  // for replying to deal option
@@ -414,7 +414,7 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!=""
     if negotiateDeal="Yes" or negotiateDeal="Y"
         {
         var amount, percent;
-        amount=get_string("How much are you asking for?",string(askingAmount[n]))
+        amount=get_string("How much are you offering?",string(askingAmount[n]))
         percent=get_string("For what Percentage?",string(percentAmount[n]))
         // now check to see if it is in range...
         if real(percent)&gt;=percentAmount[n] and  real(percent)&lt;=percentMaxRisk[n]+percentMax[n] and real(amount)&gt;=(askingAmount[n]) and real(amount)&lt;=((askingAmount[n])+((askingAmount[n])*(percentAmount[n]/100)))
