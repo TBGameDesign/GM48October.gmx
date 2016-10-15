@@ -43,6 +43,7 @@ for (n=0;n&lt;10000;n+=1) // a nice bank of possibilities
     name[n]="" // name of person &lt;- this can be random from a list
     
     // the following are tied
+    dealt[n]=false
     investeeName[n]=""
     investementLevel[n]=0 // the level (range of investment)
     businessName[n]="" // buisness name
@@ -387,24 +388,46 @@ if keyboard_check_pressed(vk_space)
           <argument>
             <kind>1</kind>
             <string>/// check and update deals made
-if makeDeal=1
+if makeDeal=1 and dealt[n]=false
     {
     getDeal=get_string("Do you want to make a deal? (Yes/No)","Yes")
     if getDeal="Yes" or getDeal="Y"
         {
         // accepted main deal
         dealsMade+=1
-        timeStamp[dealsMade]=month
-        invested[dealsMade]=askingAmount[n]
+        timeStamp[dealsMade]=month  
+        invested[dealsMade]=askingAmount[n] // for the player
         percentage[dealsMade]=percentAmount[n] // whats our cut?
         term[dealsMade]=businessYears[n]*12 // number of months
+        investmentCash-=askingAmount[n] // reduce cash u have
+        dealt[n]=true // for the investee (flag)
         getDeal=""
         }
     if getDeal="No" or getDeal="N"
         {
         negotiateDeal=get_string("Do you want to negotiate a deal? (Yes/No)","Yes")
         }   
+    if negotiateDeal="Yes" or negotiateDeal="Y"
+        {
+        var amount, percent;
+        amount=get_string("How much are you asking for?",string(askingAmount[n]))
+        percent=get_string("For what Percentage?",string(percentAmount[n]))
+        // now check to see if it is in range...
+        if real(percent)&gt;=percentAmount[n] and  percent&lt;=percentMax[n] and amount&lt;=real(askingAmount[n])+(real(askingAmount[n])*(percentAmount[n]/100))
+            {
+            // agree the deal
+            dealsMade+=1
+            timeStamp[dealsMade]=month
+            invested[dealsMade]=amount
+            percentage[dealsMade]=percent // whats our cut?
+            term[dealsMade]=businessYears[n]*12 // number of months
+            investmentCash-=amount // reduce cash u have
+            dealt[n]=true // for the investee (flag)
+            getDeal=""
+            //
+            }
         
+        }
     // ..where 'i' is a successful investment deal (array to be made soon)
     // timestamp[i] // when did it begin?
     // invested[i] // how much was it?
