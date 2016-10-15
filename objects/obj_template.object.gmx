@@ -26,8 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>/// Template layout
-month=0 // for using time
+month=1 // for using time
 counter=0 // time counter
+eachMonth=15 // ticks per month
 tp_change=100 // third party change of state randomiser
 randomize()
 
@@ -202,7 +203,7 @@ n=0; // used for indexing
             <kind>1</kind>
             <string>/// increase time and do any other tweaks
 counter+=1
-if counter&gt;=30*30 // one month
+if counter&gt;=eachMonth*room_speed // one month
     {
     month+=1
     counter=0
@@ -322,7 +323,9 @@ if keyboard_check_pressed(vk_left)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_white)
+            <string>/// Main for drawing
+
+draw_set_color(c_white)
 draw_set_font(Small_Font)
 
 
@@ -336,7 +339,7 @@ draw_text(200,0,string(numberOfNames))
 */
 
 
-draw_text(0,200,"month: "+string(month))
+draw_text(0,200,"MONTH: "+string(month)+" of 120")
 
 //n=0;
     draw_text(0,0,"Investee Name: "+string(investeeName[n]))
@@ -359,11 +362,34 @@ draw_text(0,200,"month: "+string(month))
     if thirdPartyCrisk[n]=2 draw_set_color(c_red) // 0 is green , 1 is orange, 2 is red
     draw_text(500,80,"Third Party C: "+string(thirdPartyC[n]))
     // end of business idea
+
+    
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// DEBUG
     draw_set_color(c_blue)
     draw_text(0,100,"DEBUG INFO:")
     draw_text(0,120,"Max percentage  : "+string(percentMax[n])+"%")
     draw_text(0,130,"Max Risk Based% : "+string(percentMaxRisk[n]+percentMax[n])+"%")
-    
 
 </string>
           </argument>
