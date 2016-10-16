@@ -496,8 +496,8 @@ for (j=0;j&lt;1000;j+=1)
 
 if keyboard_check_pressed(vk_right) 
     {
-    if investeeName[n+1]!="" // okay to move to next? 
     n+=1
+    if investeeName[n]="" n-=1
     }
     
 if keyboard_check_pressed(vk_left) 
