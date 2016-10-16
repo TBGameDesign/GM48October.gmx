@@ -337,7 +337,7 @@ n=5; // change this first
     // end of business idea
     
     // can be random range based on level
-    askingAmount[n]=round(random_range(1,3))*(1000*investementLevel[n]) // amount needed change the 20,30 to something applicable (in thousands of dollars)
+    askingAmount[n]=round(random_range(10,30))*(1000*investementLevel[n]) // amount needed change the 20,30 to something applicable (in thousands of dollars)
     
     // percentage system
     percentAmount[n]=5 // percentage amount
@@ -751,7 +751,7 @@ if dealt[n]=false
     }
 else
     {
-    draw_text(0,0,"Deal Made with "+string(investeeName[n]))
+    draw_text(0,0,"Deal Made with "+string(investeeName[n])+" in the "+string(businessName[n])+" Business.")
     draw_text(0,10,"Invested : "+string(dealtAmount[n])+" for "+string(dealtPercentage[n])+"%")
     draw_text(0,20,"Profit Forecast: $"+string( profits[n]))
     draw_text(0,30,"Expected on Month : "+string( timeStamp[n])+" and each subsequent 12 months.")
