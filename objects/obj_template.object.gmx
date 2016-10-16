@@ -163,6 +163,41 @@ for (a=1;a&lt;string_length(names);a+=1)
             <kind>1</kind>
             <string>/// Create businesses
 
+/*
+
+    TEMPLATE
+
+// *************** BUSINESS START *************** 
+n+=1;
+    investeeName[n]=name[round(random(numberOfNames))]
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    businessName[n]="BUSINESS NAME" // buisness name
+    businessDesc[n]="BUSINESS DESCRIPTION" // description
+    
+    thirdPartyA[n]=tp_env
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level //
+    thirdPartyB[n]=tp_eco
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_eco_level //
+    thirdPartyC[n]=tp_tra
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_tra_level //
+    // end of business idea
+    
+    // percentage system
+    percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
+    percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
+        
+    // can be random range based on level
+    askingAmount[n]=irandom_range( percentAmount[n], percentMax[n] ) * ( 1000 * investementLevel[n] ) // amount needed
+    
+    //Overall Value of the business as a whole
+    busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
+
+// *************** BUSINESS END ***************
+
+*/
+
+
 // CONSTRUCTOR
 
 // *************** BUSINESS START ***************  
@@ -176,7 +211,7 @@ n=0;
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //
     thirdPartyB[n]=tp_eco
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //
-    thirdPartyC[n]=tp_tra
+    thirdPartyC[n]=tp_tec
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //
     // end of business idea
     
@@ -201,9 +236,9 @@ n+=1;
     businessName[n]="Helicopter Tours" // buisness name
     businessDesc[n]="A Helicopter tour company looking for investment" // description
     
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_reg
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level //
-    thirdPartyB[n]=tp_eco
+    thirdPartyB[n]=tp_med
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_eco_level //
     thirdPartyC[n]=tp_tra
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_tra_level //
@@ -230,11 +265,11 @@ n+=1; // change this first
     businessName[n]="Big Time Tiling" // buisness name
     businessDesc[n]="A large Tiling company that supplies and fits Tiles" // description
     
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_res
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_reg
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_reg_level //
-    thirdPartyC[n]=tp_eco
+    thirdPartyC[n]=tp_sci
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_tra_level //
     // end of business idea
     
@@ -325,7 +360,7 @@ n+=1; // change this first
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_pol_level // see init for definitions
     thirdPartyB[n]=tp_pol
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_pol
+    thirdPartyC[n]=tp_eco
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_pol_level //
     // end of business idea
     
@@ -356,7 +391,7 @@ n+=1; // change this first
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_reg
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
@@ -389,9 +424,9 @@ n+=1; // change this first
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_tec
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_sci
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -422,9 +457,9 @@ n+=1; // change this first
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_med
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_pol
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -455,9 +490,9 @@ n+=1; // change this first
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_ind
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_reg
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -486,11 +521,11 @@ n+=1; // change this first
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_med
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_eco
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_pol
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -514,16 +549,16 @@ n+=1; // change this first
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Cherry Asphalt" // buisness name
-    businessDesc[n]="A Dance Company" // description
+    businessDesc[n]="A Dance Academy" // description
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_med
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_env
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_tec
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -552,11 +587,11 @@ n+=1; // change this first
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_tec
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_sci
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_reg
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -585,11 +620,11 @@ n+=1; // change this first
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_med
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_env
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_pol
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -618,11 +653,11 @@ n+=1; // change this first
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_res
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_tec
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_sci
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -651,11 +686,11 @@ n+=1; // change this first
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_tra
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_reg
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -686,9 +721,9 @@ n+=1; // change this first
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_res
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_ind
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -717,11 +752,11 @@ n+=1; // change this first
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_reg
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_tec
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_eco
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -783,11 +818,11 @@ n+=1; // change this first
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_ind
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_tra
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -818,9 +853,9 @@ n+=1; // change this first
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_reg
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_tra
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -851,9 +886,9 @@ n+=1; // change this first
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_med
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_sci
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -886,7 +921,7 @@ n+=1; // change this first
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_reg
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -915,11 +950,11 @@ n+=1; // change this first
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_tra
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_reg
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_tec
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -948,11 +983,11 @@ n+=1; // change this first
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_med
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_sci
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_env
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -981,11 +1016,11 @@ n+=1; // change this first
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_reg
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_ind
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_tra
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -1016,7 +1051,7 @@ n+=1; // change this first
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_ind
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
@@ -1047,11 +1082,11 @@ n+=1; // change this first
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_med
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_tec
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_ind
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -1080,11 +1115,11 @@ n+=1; // change this first
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_med
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_sci
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
@@ -1115,7 +1150,7 @@ n+=1; // change this first
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
-    thirdPartyB[n]=tp_pol
+    thirdPartyB[n]=tp_ind
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
@@ -1146,11 +1181,11 @@ n+=1; // change this first
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
     // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
-    thirdPartyA[n]=tp_env
+    thirdPartyA[n]=tp_sci
     thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
     thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
-    thirdPartyC[n]=tp_res
+    thirdPartyC[n]=tp_tec
     thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
