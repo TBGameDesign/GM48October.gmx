@@ -454,15 +454,36 @@ for (nn=0;nn&lt;1000;nn+=1)
     
     }
     
-// get paid.. happening every cycle... 
 
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Profits
 for (j=0;j&lt;1000;j+=1)
     {
     if timeStamp[j]&gt;0
         {
         if  month = (timeStamp[j]) // end of a year for any particular company
             {
-                if timeStampPaid[j]=0 {investmentCash+=profits[j];timeStampPaid[j]=1}
+                if timeStampPaid[j]=0 and dealt[j]=true and sold[j]=false {investmentCash+=profits[j];timeStampPaid[j]=1}
     
             }
         if month = (timeStamp[j]+1) // is it the next month?
@@ -474,7 +495,6 @@ for (j=0;j&lt;1000;j+=1)
         }
     
     }
-
 </string>
           </argument>
         </arguments>
@@ -513,7 +533,7 @@ if keyboard_check_pressed(ord('R'))
     game_restart()
     }
     
-if keyboard_check_pressed(vk_space)
+if keyboard_check_pressed(vk_space) and dealt[n]=false and sold[n]=false
     {
     makeDeal=1
     }
@@ -523,7 +543,7 @@ if keyboard_check_pressed(vk_control)
     advTime=1-advTime // toggle advance month
     }
     
-if keyboard_check_pressed(ord('S'))
+if keyboard_check_pressed(ord('S')) and dealt[n]=true and sold[n]=false // if selling an invested in
     {
     var checkSell=""
     checkSell = get_string("Do you want to sell out of this investment? Y/N","Y")
@@ -550,9 +570,7 @@ if keyboard_check_pressed(ord('S'))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-
-/// check and update deals made
+            <string>/// check and update deals made
 if makeDeal=1 and dealt[n]=false and investeeName[n]!="" and investmentCash-askingAmount[n]&gt;0 and sold[n]=false
     {
     getDeal=get_string("Do you want to make a deal? (Yes/No) (say No to negotiate)","")
@@ -670,7 +688,7 @@ draw_text(0,230,"CASH $"+string(investmentCash))
 
 if investmentCash&lt;0  {draw_text(0,245,"FAILED - No More Investment money left!! - Game over - Press R");advTime=0}
 draw_set_color(c_white)
-draw_text(0,260,"Arrow Keys to cycle current deals.. Space to make a deal, Press 'R' to restart test press 'CTRL' to toggle time on/off")
+draw_text(0,260,"Arrow Keys to cycle current deals.. Space to make a deal, Press 'R' to restart test press 'CTRL' to toggle time on/off and 'S' to sell out your investment")
 
 if sold[n]=true
     {
