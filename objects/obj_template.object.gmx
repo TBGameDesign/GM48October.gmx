@@ -45,6 +45,7 @@ for (n=0;n&lt;1000;n+=1) // a nice bank of possibilities
     name[n]="" // name of person &lt;- this can be random from a list
     
     // the following are tied
+    sold[n]=false // sold out?
     dealt[n]=false
     dealtAmount[n]=0 
     dealtPercentage[n]=0
@@ -522,7 +523,12 @@ if keyboard_check_pressed(vk_control)
     advTime=1-advTime // toggle advance month
     }
     
-    
+if keyboard_check_pressed(ord('S'))
+    {
+    var checkSell=""
+    checkSell = get_string("Do you want to sell out of this investment? Y/N","Y")
+    if checkSell = "y" or checkSell = "Y" checkSell = "yes" checkSell = "Yes" checkSell = "YES" sold[n]=true
+    }
     
 </string>
           </argument>
@@ -547,7 +553,7 @@ if keyboard_check_pressed(vk_control)
             <string>
 
 /// check and update deals made
-if makeDeal=1 and dealt[n]=false and investeeName[n]!="" and investmentCash-askingAmount[n]&gt;0
+if makeDeal=1 and dealt[n]=false and investeeName[n]!="" and investmentCash-askingAmount[n]&gt;0 and sold[n]=false
     {
     getDeal=get_string("Do you want to make a deal? (Yes/No) (say No to negotiate)","")
     if getDeal="Yes" or getDeal="Y" or getDeal="y"
@@ -666,7 +672,45 @@ if investmentCash&lt;0  {draw_text(0,245,"FAILED - No More Investment money left
 draw_set_color(c_white)
 draw_text(0,260,"Arrow Keys to cycle current deals.. Space to make a deal, Press 'R' to restart test press 'CTRL' to toggle time on/off")
 
-if dealt[n]=false
+if sold[n]=true
+    {
+
+    draw_text(0,0,"Investee Name: "+string(investeeName[n]))
+    draw_text(0,10,"Business Level: "+string(investementLevel[n]))
+    draw_text(0,20,"Business Name: "+string(businessName[n]))
+    draw_text(0,30,"Business Descritption: "+string(businessDesc[n]))
+    //draw_text(0,40,"Term Time: "+string(businessYears[n])+" years") // Doing away with this...
+    draw_text(0,60,"SOLD OUT!")
+    
+    if thirdPartyArisk[n]&lt;-2 draw_set_color(make_colour_rgb(128,0,128)) 
+    if thirdPartyArisk[n]=-2 draw_set_color(make_colour_rgb(255,0,0)) 
+    if thirdPartyArisk[n]=-1 draw_set_color(make_colour_rgb(255,128,0)) 
+    if thirdPartyArisk[n]=0 draw_set_color(make_colour_rgb(255,255,0)) // -2,-1,0,1,2 * 20 as an offset to a 50 sided dice as a chance of chaing for the worst (diminish)
+    if thirdPartyArisk[n]=1 draw_set_color(make_colour_rgb(128,255,0))
+    if thirdPartyArisk[n]=2 draw_set_color(make_colour_rgb(0,255,0)) 
+    if thirdPartyArisk[n]&gt;2 draw_set_color(make_colour_rgb(0,255,128)) 
+    draw_text(0,80,"Third Party A: "+string(thirdPartyA[n]))
+    if thirdPartyBrisk[n]&lt;-2 draw_set_color(make_colour_rgb(128,0,128)) 
+    if thirdPartyBrisk[n]=-2 draw_set_color(make_colour_rgb(255,0,0)) 
+    if thirdPartyBrisk[n]=-1 draw_set_color(make_colour_rgb(255,128,0)) 
+    if thirdPartyBrisk[n]=0 draw_set_color(make_colour_rgb(255,255,0)) // -2,-1,0,1,2 * 20 as an offset to a 50 sided dice as a chance of chaing for the worst (diminish)
+    if thirdPartyBrisk[n]=1 draw_set_color(make_colour_rgb(128,255,0))
+    if thirdPartyBrisk[n]=2 draw_set_color(make_colour_rgb(0,255,0)) 
+    if thirdPartyBrisk[n]&gt;2 draw_set_color(make_colour_rgb(0,255,128)) 
+    draw_text(250,80,"Third Party B: "+string(thirdPartyB[n]))
+    if thirdPartyCrisk[n]&lt;-2 draw_set_color(make_colour_rgb(128,0,128))
+    if thirdPartyCrisk[n]=-2 draw_set_color(make_colour_rgb(255,0,0)) 
+    if thirdPartyCrisk[n]=-1 draw_set_color(make_colour_rgb(255,128,0)) 
+    if thirdPartyCrisk[n]=0 draw_set_color(make_colour_rgb(255,255,0)) // -2,-1,0,1,2 * 20 as an offset to a 50 sided dice as a chance of chaing for the worst (diminish)
+    if thirdPartyCrisk[n]=1 draw_set_color(make_colour_rgb(128,255,0))
+    if thirdPartyCrisk[n]=2 draw_set_color(make_colour_rgb(0,255,0)) 
+    if thirdPartyCrisk[n]&gt;2 draw_set_color(make_colour_rgb(0,255,128)) 
+    draw_text(500,80,"Third Party C: "+string(thirdPartyC[n]))
+    // end of business idea
+    }
+
+
+if dealt[n]=false and sold[n]=false
     {
 
     draw_text(0,0,"Investee Name: "+string(investeeName[n]))
@@ -702,7 +746,8 @@ if dealt[n]=false
     draw_text(500,80,"Third Party C: "+string(thirdPartyC[n]))
     // end of business idea
     }
-else
+
+if dealt[n]=true and sold[n]=false
     {
     draw_text(0,0,"Deal Made with "+string(investeeName[n])+" in the "+string(businessName[n])+" Business.")
     draw_text(0,10,"Invested : "+string(dealtAmount[n])+" for "+string(dealtPercentage[n])+"%")
