@@ -30,7 +30,7 @@ month=1 // for using time
 year=0 // year
 advTime=0 // for advancing time
 counter=0 // time counter
-eachMonth=1 // ticks per month (seconds)
+eachMonth=2 // ticks per month (seconds)
 tp_change=777 // third party change of state randomiser
 makeDeal=0 // state machine for making deals
 investmentCash=100000 // starting cash
@@ -479,21 +479,16 @@ for (nn=0;nn&lt;1000;nn+=1)
             <string>/// Profits
 for (j=0;j&lt;1000;j+=1)
     {
-    if timeStamp[j]&gt;0
+    if timeStamp[j]&gt;0 // a month
         {
-        if  month = (timeStamp[j]) // end of a year for any particular company
+        if  month = (timeStamp[j]) and timeStampPaid[j]=0 // end of a year for any particular company and not paid yet
             {
-                if timeStampPaid[j]=0 and dealt[j]=true and sold[j]=false {investmentCash+=profits[j];timeStampPaid[j]=1}
-    
-            }
-        if month = (timeStamp[j]+1) // is it the next month?
-            {
-            // reset paid flag
-            timeStampPaid[j]=0
-            }
+                if  dealt[j]=true and sold[j]=false {investmentCash+=profits[j]}
+                timeStampPaid[j]=1
+            }           
+            if (timeStamp[j]+1=13 and month=1) or (timeStamp[j]+1=month) timeStampPaid[j]=0
             
         }
-    
     }
 </string>
           </argument>
@@ -547,7 +542,8 @@ if keyboard_check_pressed(ord('S')) and dealt[n]=true and sold[n]=false // if se
     {
     var checkSell=""
     checkSell = get_string("Do you want to sell out of this investment? Y/N","Y")
-    if checkSell = "y" or checkSell = "Y" checkSell = "yes" checkSell = "Yes" checkSell = "YES" sold[n]=true
+    if checkSell = "y" or checkSell = "Y" or checkSell = "yes" or checkSell = "Yes" or checkSell = "YES" {sold[n]=true}
+    if checkSell = "n" or checkSell = "N" or checkSell = "no"  or checkSell = "No" or checkSell = "NO" {sold[n]=false}
     }
     
 </string>
@@ -618,7 +614,6 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!="" and investmentCash-aski
                 // affect supported companies one off
                 // global updates to third parites
                 updateParties()
-    
                 dealt[n]=true // for the investee (flag)
                 getDeal=""
                 makeDeal=0
@@ -771,7 +766,7 @@ if dealt[n]=true and sold[n]=false
     draw_text(0,10,"Invested : "+string(dealtAmount[n])+" for "+string(dealtPercentage[n])+"%")
     draw_text(0,20,"Investors Share Forecast: $"+string( profits[n]))
     draw_text(0,30,"Expected on Month : "+string( timeStamp[n])+" and each subsequent 12 months.")
-    
+    draw_text(0,40,"TimeStampPaidFlag : "+string( timeStampPaid[n]))
     if thirdPartyArisk[n]&lt;-2 draw_set_color(make_colour_rgb(128,0,128)) 
     if thirdPartyArisk[n]=-2 draw_set_color(make_colour_rgb(255,0,0)) 
     if thirdPartyArisk[n]=-1 draw_set_color(make_colour_rgb(255,128,0)) 
