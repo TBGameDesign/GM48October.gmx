@@ -173,11 +173,11 @@ n=0;
     businessDesc[n]="A Startup fitness company looking for cash." // description
     
     thirdPartyA[n]=tp_med
-    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //scr_TPR_switch(thirdPartyA[n]); //
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //
     thirdPartyB[n]=tp_eco
-    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //scr_TPR_switch(thirdPartyB[n]); //
-    thirdPartyC[n]=""
-    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //scr_TPR_switch(thirdPartyC[n]); //
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //
+    thirdPartyC[n]=tp_tra
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //
     // end of business idea
     
     // percentage system
