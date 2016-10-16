@@ -139,7 +139,7 @@ var i=0
 for (a=1;a&lt;string_length(names);a+=1)
     {
     if string_char_at(names,a)=";"  {name[i]=string_copy(names,marker,a-marker);marker=a+1;i++}
-    numberOfNames=i
+    numberOfNames=i-1
     }
 </string>
           </argument>
@@ -1305,7 +1305,7 @@ for (nn=0;nn&lt;1000;nn+=1)
     if thirdPartyC[nn]=tp_pol thirdPartyCrisk[nn]=tp_pol_level
     if thirdPartyC[nn]=tp_eco thirdPartyCrisk[nn]=tp_eco_level
     
-    percentMaxRisk[nn]=(thirdPartyArisk[nn]+thirdPartyBrisk[nn]+thirdPartyCrisk[nn])*5
+    //percentMaxRisk[nn]=(thirdPartyArisk[nn]+thirdPartyBrisk[nn]+thirdPartyCrisk[nn])*5
     
     }
     
