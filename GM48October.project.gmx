@@ -49,6 +49,7 @@
     <background>background\bg_1</background>
     <background>background\bg_2</background>
     <background>background\bg_3</background>
+    <background>background\bg_game</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path_temp0</path>
