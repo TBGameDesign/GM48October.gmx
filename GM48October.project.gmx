@@ -60,6 +60,7 @@
   <scripts name="scripts">
     <script>scripts\updateParties.gml</script>
     <script>scripts\draw_tpStuff.gml</script>
+    <script>scripts\scr_TPR_switch.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\Small_Font</font>

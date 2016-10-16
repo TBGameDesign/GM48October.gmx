@@ -141,9 +141,6 @@ for (a=1;a&lt;string_length(names);a+=1)
     if string_char_at(names,a)=";"  {name[i]=string_copy(names,marker,a-marker);marker=a+1;i++}
     numberOfNames=i
     }
-    
-
-
 </string>
           </argument>
         </arguments>
@@ -168,23 +165,19 @@ for (a=1;a&lt;string_length(names);a+=1)
 
 // CONSTRUCTOR
 
-
-
-
-
-// **** BUSINESS 0 **** 
+// *************** BUSINESS START ***************  
 n=0;
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); 
     businessName[n]="Fitness Finders" // buisness name
     businessDesc[n]="A Startup fitness company looking for cash." // description
     
     thirdPartyA[n]=tp_med
-    thirdPartyArisk[n]=tp_med_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //scr_TPR_switch(thirdPartyA[n]); //
     thirdPartyB[n]=tp_eco
-    thirdPartyBrisk[n]=tp_eco_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //scr_TPR_switch(thirdPartyB[n]); //
     thirdPartyC[n]=""
-    thirdPartyCrisk[n]=0 // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //scr_TPR_switch(thirdPartyC[n]); //
     // end of business idea
     
     // percentage system
@@ -197,23 +190,23 @@ n=0;
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-//  ************************************ END ************    
 
-// **** BUSINESS 1 ****
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
 
 n+=1;
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Helicopter Tours" // buisness name
     businessDesc[n]="A Helicopter tour company looking for investment" // description
     
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level //
     thirdPartyB[n]=tp_eco
-    thirdPartyBrisk[n]=tp_eco_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_eco_level //
     thirdPartyC[n]=tp_tra
-    thirdPartyCrisk[n]=tp_tra_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_tra_level //
     // end of business idea
     
     // percentage system
@@ -226,25 +219,23 @@ n+=1;
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START ***************
 
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Big Time Tiling" // buisness name
     businessDesc[n]="A large Tiling company that supplies and fits Tiles" // description
     
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_reg
-    thirdPartyBrisk[n]=tp_reg_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_reg_level //
     thirdPartyC[n]=tp_eco
-    thirdPartyCrisk[n]=tp_tra_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_tra_level //
     // end of business idea
     
     // percentage system
@@ -257,25 +248,23 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
 
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Fabulous Flowers" // buisness name
     businessDesc[n]="A family run flower company looking to franchise" // description
     
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_eco
-    thirdPartyBrisk[n]=tp_eco_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_eco_level //
     thirdPartyC[n]=tp_tra
-    thirdPartyCrisk[n]=tp_tra_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_tra_level //
     // end of business idea
     
     // percentage system
@@ -288,26 +277,24 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
 
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Armchair Engineering" // buisness name
     businessDesc[n]="A Medical Facility requiring investment to expand." // description
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     thirdPartyA[n]=tp_ind
-    thirdPartyArisk[n]=tp_ind_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_ind_level // see init for definitions
     thirdPartyB[n]=tp_sci
-    thirdPartyBrisk[n]=tp_sci_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_sci_level //
     thirdPartyC[n]=tp_tec
-    thirdPartyCrisk[n]=tp_tec_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_tec_level //
     // end of business idea
     
     // percentage system
@@ -320,28 +307,26 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
-    
-// **** BUSINESS 1 ****
+
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
 
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     investementLevel[n]=5 
     businessName[n]="President" // buisness name
     businessDesc[n]="I wanna be president!" // description
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_pol
-    thirdPartyArisk[n]=tp_pol_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_pol_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_pol
-    thirdPartyCrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_pol_level //
     // end of business idea
     
     // percentage system
@@ -354,13 +339,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
-    
-// **** BUSINESS 1 ****
+
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
 
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Horticulture Education" // buisness name
@@ -368,15 +353,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -389,13 +372,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****   
-    
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START ***************    
+
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Avalanche Design" // buisness name
@@ -403,15 +386,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -424,13 +405,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
  
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Better Fish" // buisness name
@@ -438,15 +419,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -459,13 +438,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Black Hat Dusters" // buisness name
@@ -473,15 +452,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -494,13 +471,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Card-e-ology" // buisness name
@@ -508,15 +485,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -529,13 +504,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Cherry Asphalt" // buisness name
@@ -543,15 +518,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -564,13 +537,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****    
-    
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Deep Blue See" // buisness name
@@ -578,15 +551,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -599,13 +570,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Edgewise Publicity" // buisness name
@@ -613,15 +584,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -634,13 +603,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****    
-    
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Ergonomic Envisioning" // buisness name
@@ -648,15 +617,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -669,13 +636,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Orbit Runner" // buisness name
@@ -683,15 +650,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -704,13 +669,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Feast West" // buisness name
@@ -718,15 +683,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -739,13 +702,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Fringe Factory" // buisness name
@@ -753,15 +716,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -774,13 +735,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Gift Horses" // buisness name
@@ -788,15 +749,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -809,13 +768,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Granite Planet" // buisness name
@@ -823,15 +782,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -844,13 +801,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="HomeLand" // buisness name
@@ -858,15 +815,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -879,13 +834,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Hot Belly Underground" // buisness name
@@ -893,15 +848,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -914,13 +867,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Information Plantation" // buisness name
@@ -928,15 +881,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -949,13 +900,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Intraglobal Holdings" // buisness name
@@ -963,15 +914,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -984,13 +933,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Jezebel’s Juice" // buisness name
@@ -998,15 +947,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -1019,13 +966,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Kiosk Systems" // buisness name
@@ -1033,15 +980,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -1054,13 +999,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Leafblower’s Union" // buisness name
@@ -1068,15 +1013,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -1089,13 +1032,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Liquid Mountain" // buisness name
@@ -1103,15 +1046,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -1124,13 +1065,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Maine Main" // buisness name
@@ -1138,15 +1079,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -1159,13 +1098,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Perk and Peak" // buisness name
@@ -1173,15 +1112,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -1194,13 +1131,13 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
 
-// **** BUSINESS 1 ****
-        
+// *************** BUSINESS END *************** 
+
+// *************** BUSINESS START *************** 
+    
 n+=1; // change this first
-    investeeName[n]=name[round(random(numberOfNames))]    
+    investeeName[n]=name[round(random(numberOfNames))]
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Neurocell" // buisness name
@@ -1208,15 +1145,13 @@ n+=1; // change this first
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
-    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    // tec=Technology  ; tra=Transport ; med=Media  ; pol=Politics  ; eco=Economy
     thirdPartyA[n]=tp_env
-    thirdPartyArisk[n]=tp_env_level // see init for definitions
-    
+    thirdPartyArisk[n]=scr_TPR_switch(thirdPartyA[n]); //tp_env_level // see init for definitions
     thirdPartyB[n]=tp_pol
-    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
-    
+    thirdPartyBrisk[n]=scr_TPR_switch(thirdPartyB[n]); //tp_pol_level //
     thirdPartyC[n]=tp_res
-    thirdPartyCrisk[n]=tp_res_level // 0 is green , 1 is orange, 2 is red
+    thirdPartyCrisk[n]=scr_TPR_switch(thirdPartyC[n]); //tp_res_level //
     // end of business idea
     
     // percentage system
@@ -1229,11 +1164,11 @@ n+=1; // change this first
     
     //Overall Value of the business as a whole
     busValue[i] = askingAmount[i] / ( percentAmount[i] / 100 );
-    
-    // **************************************** END
+
+// *************** BUSINESS END *************** 
  
   
-// Do not alter anything Below..    
+// Do not alter anything Below..
 n=0; // used for indexing do not remove
 </string>
           </argument>
