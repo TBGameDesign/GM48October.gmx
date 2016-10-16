@@ -79,7 +79,8 @@ for (n=0;n&lt;1000;n+=1) // a nice bank of possibilities
 
 
 // Third Party setup.. These are the kind of General things a business could be affected by
-
+// env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
+// tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
 
 tp_env="Environment" // if the environment is poor, it can affect the ability to get natural resources
 tp_env_level=0 // 0 is green, 1 is orange, 2 is red
@@ -161,7 +162,7 @@ n=0;
     investementLevel[n]=1 // Level 1, the basics
     businessName[n]="Fitness Finders" // buisness name
     businessDesc[n]="A Startup fitness company looking for intial invstent for facilities, staff and equiptment" // description
-    businessYears[n]=5 // can be 1,3 or 5 years 
+    
     thirdPartyA[n]=tp_med
     thirdPartyArisk[n]=tp_med_level // 0 is green , 1 is orange, 2 is red
     thirdPartyB[n]=tp_eco
@@ -177,6 +178,10 @@ n=0;
     percentAmount[n]=15 // percentage amount
     percentMax[n]=30 // maximum percentage
     percentMaxRisk[n]=(thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n])*5 // this is calucalted by looking at 3rd party elements and acting as a higher limit
+    
+//  ************************************ END ************    
+    
+    
 
 
 // **** BUSINESS 1 ****
@@ -186,7 +191,7 @@ n=1;
     investementLevel[n]=1 // Level 1, the basics
     businessName[n]="Helicopter Tours" // buisness name
     businessDesc[n]="A Helicopter tour company looking for investment" // description
-    businessYears[n]=3 // can be 1,3 or 5 years 
+    
     thirdPartyA[n]=tp_env
     thirdPartyArisk[n]=tp_env_level // 0 is green , 1 is orange, 2 is red
     thirdPartyB[n]=tp_eco
@@ -202,16 +207,22 @@ n=1;
     percentAmount[n]=10 // percentage amount
     percentMax[n]=35 // maximum percentage
     percentMaxRisk[n]=(thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n])*5 // this is calucalted by looking at 3rd party elements and acting as a higher limit
+    
+    // **************************************** END
+    
+    
+    
+    
 
-// TERRY WE NEED ME OF THESE :)
-// **** BUSINESS 2 - BLANK ****
+
+// **** BUSINESS 2  ****
 
 n=2; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     investementLevel[n]=1 // Level 1, the basics
-    businessName[n]="Business" // buisness name
-    businessDesc[n]="A sentence to describe it (about 25 words max)" // description
-    businessYears[n]=1 // can be 1,3 or 5 years 
+    businessName[n]="Big Time Tiling" // buisness name
+    businessDesc[n]="A large Tiling company that supplies and fits Tiles" // description
+    
     thirdPartyA[n]=tp_env
     thirdPartyArisk[n]=tp_env_level // see init for definitions
     
@@ -223,22 +234,28 @@ n=2; // change this first
     // end of business idea
     
     // can be random range based on level
-    askingAmount[n]=round(random_range(20,30))*(1000*investementLevel[n]) // amount needed change the 20,30 to something applicable (in thousands of dollars)
+    askingAmount[n]=round(random_range(30,40))*(1000*investementLevel[n]) // amount needed change the 20,30 to something applicable (in thousands of dollars)
     
     // percentage system
     percentAmount[n]=10 // percentage amount
-    percentMax[n]=35 // maximum percentage
+    percentMax[n]=30 // maximum percentage
     // Below is a calculation formula, keep as is.
     percentMaxRisk[n]=(thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n])*5 // this is calucalted by looking at 3rd party elements and acting as a higher limit
     
-    // **** BUSINESS 3 - BLANK ****
+    // **************************************** END
+    
+    
+    
+    
+    
+    // **** BUSINESS 3 ****
 
 n=3; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     investementLevel[n]=1 // Level 1, the basics
-    businessName[n]="Business" // buisness name
-    businessDesc[n]="A sentence to describe it (about 25 words max)" // description
-    businessYears[n]=1 // can be 1,3 or 5 years 
+    businessName[n]="Fabulous Flowers" // buisness name
+    businessDesc[n]="A family run flower company looking to franchise" // description
+    
     thirdPartyA[n]=tp_env
     thirdPartyArisk[n]=tp_env_level // see init for definitions
     
@@ -250,14 +267,85 @@ n=3; // change this first
     // end of business idea
     
     // can be random range based on level
-    askingAmount[n]=round(random_range(20,30))*(1000*investementLevel[n]) // amount needed change the 20,30 to something applicable (in thousands of dollars)
+    askingAmount[n]=round(random_range(24,40))*(1000*investementLevel[n]) // amount needed change the 20,30 to something applicable (in thousands of dollars)
     
     // percentage system
-    percentAmount[n]=10 // percentage amount
-    percentMax[n]=35 // maximum percentage
+    percentAmount[n]=15 // percentage amount
+    percentMax[n]=25 // maximum percentage
     // Below is a calculation formula, keep as is.
     percentMaxRisk[n]=(thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n])*5 // this is calucalted by looking at 3rd party elements and acting as a higher limit
     
+    // **************************************** END
+    
+    
+    
+    
+    
+    // **** BUSINESS ****
+
+n=4; // change this first
+    investeeName[n]=name[round(random(numberOfNames))]    
+    investementLevel[n]=2 // Level 2, something bigger... Riskier...
+    businessName[n]="Business" // buisness name
+    businessDesc[n]="A Medical Facility requiring investment for building improvements and facilities to cope with town expansion" // description
+    
+    //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
+    thirdPartyA[n]=tp_pol
+    thirdPartyArisk[n]=tp_pol_level // see init for definitions
+    
+    thirdPartyB[n]=tp_sci
+    thirdPartyBrisk[n]=tp_sci_level // 0 is green , 1 is orange, 2 is red
+    
+    thirdPartyC[n]=tp_tec
+    thirdPartyCrisk[n]=tp_tec_level // 0 is green , 1 is orange, 2 is red
+    // end of business idea
+    
+    // can be random range based on level
+    askingAmount[n]=round(random_range(10,13))*(1000*investementLevel[n]) // amount needed change the 20,30 to something applicable (in thousands of dollars)
+    
+    // percentage system
+    percentAmount[n]=5 // percentage amount
+    percentMax[n]=15 // maximum percentage
+    // Below is a calculation formula, keep as is.
+    percentMaxRisk[n]=(thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n])*5 // this is calucalted by looking at 3rd party elements and acting as a higher limit
+    
+    // **************************************** END
+    
+    
+    
+    
+    
+    // **** BUSINESS 5 - BLANK ****
+
+n=5; // change this first
+    investeeName[n]=name[round(random(numberOfNames))]    
+    investementLevel[n]=5 // Level 1, the basics
+    businessName[n]="President" // buisness name
+    businessDesc[n]="I wanna be president!" // description
+    
+    //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
+    // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
+    // tec=Technology  ; tra=Transport ; med=Media      ; pol=Politics  ; eco=Economy
+    thirdPartyA[n]=tp_pol
+    thirdPartyArisk[n]=tp_pol_level // see init for definitions
+    
+    thirdPartyB[n]=tp_pol
+    thirdPartyBrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
+    
+    thirdPartyC[n]=tp_pol
+    thirdPartyCrisk[n]=tp_pol_level // 0 is green , 1 is orange, 2 is red
+    // end of business idea
+    
+    // can be random range based on level
+    askingAmount[n]=round(random_range(1,3))*(1000*investementLevel[n]) // amount needed change the 20,30 to something applicable (in thousands of dollars)
+    
+    // percentage system
+    percentAmount[n]=5 // percentage amount
+    percentMax[n]=10 // maximum percentage
+    // Below is a calculation formula, keep as is.
+    percentMaxRisk[n]=(thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n])*5 // this is calucalted by looking at 3rd party elements and acting as a higher limit
+    
+    // **************************************** END
 // Do not alter anything Below..    
 n=0; // used for indexing do not remove
 </string>
@@ -407,6 +495,7 @@ for (j=0;j&lt;1000;j+=1)
 
 if keyboard_check_pressed(vk_right) 
     {
+    if investeeName[n+1]!="" // okay to move to next? 
     n+=1
     }
     
@@ -714,12 +803,12 @@ else
           <argument>
             <kind>1</kind>
             <string>/// DEBUG
-    draw_set_color(c_blue)
+    draw_set_color(c_black)
     //draw_text(0,100,"DEBUG INFO:")
     //draw_text(0,120,"Max percentage  : "+string(percentMax[n])+"%")
     //draw_text(0,130,"Max Risk Based% : "+string(percentMaxRisk[n]+percentMax[n])+"%")
 
-    var yy=280
+    var yy=300
 draw_text(0,yy,"Environment") // if the environment is poor, it can affect the ability to get natural resources
 yy+=10
 draw_text(0,yy,string(tp_env_level)) // 0 is green, 1 is orange, 2 is red
