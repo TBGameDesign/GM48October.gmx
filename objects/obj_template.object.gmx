@@ -28,7 +28,7 @@
             <string>/// Template layout
 month=1 // for using time
 counter=0 // time counter
-eachMonth=10 // ticks per month (seconds)
+eachMonth=3 // ticks per month (seconds)
 tp_change=777 // third party change of state randomiser
 makeDeal=0 // state machine for making deals
 investmentCash=1000000 // starting cash
@@ -61,8 +61,8 @@ for (n=0;n&lt;1000;n+=1) // a nice bank of possibilities
     
     // can be random range based on level
     askingAmount[n]=0 // amount needed
-    timeStamp[n]=0
-    timeStampPaid[n]=0
+    timeStamp[n]=0 // what month the deal landed on
+    timeStampPaid[n]=0 // paid for this year?
     // can be random range based on level
     percentAmount[n]=0 // percentage amount
     percentMax[n]=0 // maximum percentage
@@ -289,7 +289,7 @@ if counter&gt;=eachMonth*room_speed // one month
     // calc profits...
     for (p=0;p&lt;1000;p+=1)
         {
-        profits[p]= ((dealtAmount[p]*((100-dealtPercentage[p])+dealtPercentage[p])) * (dealtPercentage[p]/100)) + ((thirdPartyArisk[p]*10000)+(thirdPartyBrisk[p]*10000)+(thirdPartyCrisk[p]*10000))
+        profits[p]= (((dealtAmount[p]*((100-dealtPercentage[p])+dealtPercentage[p])) * (dealtPercentage[p]/100)))/100 + ((thirdPartyArisk[p]*10000)+(thirdPartyBrisk[p]*10000)+(thirdPartyCrisk[p]*10000))
         }
     counter=0
     // each party get diminished by the percentage of chance that it has inherited
@@ -362,12 +362,15 @@ for (nn=0;nn&lt;1000;nn+=1)
     
 // get paid.. happening every cycle... 
 
-for (j=0;j&lt;dealsMade;j+=1)
+for (j=0;j&lt;1000;j+=1)
     {
-    if timeStamp[j] % 12 = 0 // end of a year for any particular company
+    if timeStamp[j]&gt;0
         {
-            if timeStampPaid[j]=0 {investmentCash+=profits[j];timeStampPaid[j]=1}
-
+        if  month % timeStamp[j] = 0 // end of a year for any particular company
+            {
+                if timeStampPaid[j]=0 {investmentCash+=profits[j];timeStampPaid[j]=1}
+    
+            }
         }
     }
 
@@ -445,10 +448,10 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!=""
         {
         // accepted main deal
         dealsMade+=1
-        timeStamp[dealsMade]=month  
-        invested[dealsMade]=askingAmount[n] // for the player
-        percentage[dealsMade]=percentAmount[n] // whats our cut?
-        term[dealsMade]=businessYears[n]*12 // number of months
+        timeStamp[n]=month  
+        invested[n]=askingAmount[n] // for the player
+        percentage[n]=percentAmount[n] // whats our cut?
+        term[n]=businessYears[n]*12 // number of months
         investmentCash-=askingAmount[n] // reduce cash u have
         dealtAmount[n]=askingAmount[n]
         dealtPercentage[n]=percentAmount[n]
@@ -508,10 +511,10 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!=""
             {
             // agree the deal
             dealsMade+=1
-            timeStamp[dealsMade]=month
-            invested[dealsMade]=real(amount)
-            percentage[dealsMade]=real(percent) // whats our cut?
-            term[dealsMade]=businessYears[n]*12 // number of months
+            timeStamp[n]=month
+            invested[n]=real(amount)
+            percentage[n]=real(percent) // whats our cut?
+            term[n]=businessYears[n]*12 // number of months
             investmentCash-=real(amount) // reduce cash u have
             dealtAmount[n]=real(amount)
             dealtPercentage[n]=real(percent)
@@ -652,6 +655,32 @@ else
     {
     draw_text(0,0,"Deal Made with "+string(investeeName[n]))
     draw_text(0,10,"Invested : "+string(dealtAmount[n])+" for "+string(dealtPercentage[n])+"%")
+    draw_text(0,20,"Profit Forecast: $"+string( profits[n]))
+    draw_text(0,30,"Expected on Month : "+string( timeStamp[n])+" and each subsequent 12 months.")
+        if thirdPartyArisk[n]&lt;-2 draw_set_color(make_colour_rgb(128,0,128)) 
+    if thirdPartyArisk[n]=-2 draw_set_color(make_colour_rgb(255,0,0)) 
+    if thirdPartyArisk[n]=-1 draw_set_color(make_colour_rgb(255,128,0)) 
+    if thirdPartyArisk[n]=0 draw_set_color(make_colour_rgb(255,255,0)) // -2,-1,0,1,2 * 20 as an offset to a 50 sided dice as a chance of chaing for the worst (diminish)
+    if thirdPartyArisk[n]=1 draw_set_color(make_colour_rgb(128,255,0))
+    if thirdPartyArisk[n]=2 draw_set_color(make_colour_rgb(0,255,0)) 
+    if thirdPartyArisk[n]&gt;2 draw_set_color(make_colour_rgb(0,255,128)) 
+    draw_text(0,80,"Third Party A: "+string(thirdPartyA[n]))
+    if thirdPartyBrisk[n]&lt;-2 draw_set_color(make_colour_rgb(128,0,128)) 
+    if thirdPartyBrisk[n]=-2 draw_set_color(make_colour_rgb(255,0,0)) 
+    if thirdPartyBrisk[n]=-1 draw_set_color(make_colour_rgb(255,128,0)) 
+    if thirdPartyBrisk[n]=0 draw_set_color(make_colour_rgb(255,255,0)) // -2,-1,0,1,2 * 20 as an offset to a 50 sided dice as a chance of chaing for the worst (diminish)
+    if thirdPartyBrisk[n]=1 draw_set_color(make_colour_rgb(128,255,0))
+    if thirdPartyBrisk[n]=2 draw_set_color(make_colour_rgb(0,255,0)) 
+    if thirdPartyBrisk[n]&gt;2 draw_set_color(make_colour_rgb(0,255,128)) 
+    draw_text(250,80,"Third Party B: "+string(thirdPartyB[n]))
+    if thirdPartyCrisk[n]&lt;-2 draw_set_color(make_colour_rgb(128,0,128))
+    if thirdPartyCrisk[n]=-2 draw_set_color(make_colour_rgb(255,0,0)) 
+    if thirdPartyCrisk[n]=-1 draw_set_color(make_colour_rgb(255,128,0)) 
+    if thirdPartyCrisk[n]=0 draw_set_color(make_colour_rgb(255,255,0)) // -2,-1,0,1,2 * 20 as an offset to a 50 sided dice as a chance of chaing for the worst (diminish)
+    if thirdPartyCrisk[n]=1 draw_set_color(make_colour_rgb(128,255,0))
+    if thirdPartyCrisk[n]=2 draw_set_color(make_colour_rgb(0,255,0)) 
+    if thirdPartyCrisk[n]&gt;2 draw_set_color(make_colour_rgb(0,255,128)) 
+    draw_text(500,80,"Third Party C: "+string(thirdPartyC[n]))
     }
 
 </string>
