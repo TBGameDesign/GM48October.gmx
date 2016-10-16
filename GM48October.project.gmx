@@ -40,6 +40,9 @@
       <sprite>sprites\spr_Effect2</sprite>
       <sprite>sprites\spr_Effect3</sprite>
     </sprites>
+    <sprites name="GUI">
+      <sprite>sprites\spr_exit</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -88,6 +91,7 @@
     </objects>
     <objects name="Management">
       <object>objects\obj_template</object>
+      <object>objects\obj_quitButton</object>
     </objects>
   </objects>
   <rooms name="rooms">

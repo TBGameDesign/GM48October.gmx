@@ -380,7 +380,8 @@ if counter&gt;=eachMonth*room_speed // one month
     if month=13 {year+=1;month=1}
     for (p=0;p&lt;1000;p+=1)
         {
-        profits[p]= (((dealtAmount[p]*((100-dealtPercentage[p])+dealtPercentage[p])) * (dealtPercentage[p]/100)))/100 + ((thirdPartyArisk[p]*10000)+(thirdPartyBrisk[p]*10000)+(thirdPartyCrisk[p]*10000))
+        // Initial Model // profits[p]= (((dealtAmount[p]*((100-dealtPercentage[p])+dealtPercentage[p])) * (dealtPercentage[p]/100)))/100 + ((thirdPartyArisk[p]*10000)+(thirdPartyBrisk[p]*10000)+(thirdPartyCrisk[p]*10000))
+        profits[p]= ((dealtAmount[p]*100)*(dealtPercentage[p]*0.001)) * ((thirdPartyArisk[p])+(thirdPartyBrisk[p])+(thirdPartyCrisk[p]))
         }
     counter=0
     // each party get diminished by the percentage of chance that it has inherited
@@ -548,81 +549,22 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!=""
     getDeal=get_string("Do you want to make a deal? (Yes/No) (say No to negotiate)","")
     if getDeal="Yes" or getDeal="Y" or getDeal="y"
         {
-        // accepted main deal
-        dealsMade+=1
-        timeStamp[n]=month  
-        invested[n]=askingAmount[n] // for the player
-        percentage[n]=percentAmount[n] // whats our cut?
-        term[n]=businessYears[n]*12 // number of months
-        investmentCash-=askingAmount[n] // reduce cash u have
-        dealtAmount[n]=askingAmount[n]
-        dealtPercentage[n]=percentAmount[n]
-        // affect supported companies one off
-        
-        // global updates to third parites
-        
-        
-        if thirdPartyA[n]=tp_env tp_env_level+=1
-        if thirdPartyA[n]=tp_ind tp_ind_level+=1
-        if thirdPartyA[n]=tp_reg tp_reg_level+=1
-        if thirdPartyA[n]=tp_res tp_res_level+=1
-        if thirdPartyA[n]=tp_sci tp_sci_level+=1
-        if thirdPartyA[n]=tp_tec tp_tec_level+=1
-        if thirdPartyA[n]=tp_tra tp_tra_level+=1
-        if thirdPartyA[n]=tp_med tp_med_level+=1
-        if thirdPartyA[n]=tp_pol tp_pol_level+=1
-        if thirdPartyA[n]=tp_eco tp_eco_level+=1
-        
-        if thirdPartyB[n]=tp_env tp_env_level+=1
-        if thirdPartyB[n]=tp_ind tp_ind_level+=1
-        if thirdPartyB[n]=tp_reg tp_reg_level+=1
-        if thirdPartyB[n]=tp_res tp_res_level+=1
-        if thirdPartyB[n]=tp_sci tp_sci_level+=1
-        if thirdPartyB[n]=tp_tec tp_tec_level+=1
-        if thirdPartyB[n]=tp_tra tp_tra_level+=1
-        if thirdPartyB[n]=tp_med tp_med_level+=1
-        if thirdPartyB[n]=tp_pol tp_pol_level+=1
-        if thirdPartyB[n]=tp_eco tp_eco_level+=1
-        
-        if thirdPartyC[n]=tp_env tp_env_level+=1
-        if thirdPartyC[n]=tp_ind tp_ind_level+=1
-        if thirdPartyC[n]=tp_reg tp_reg_level+=1
-        if thirdPartyC[n]=tp_res tp_res_level+=1
-        if thirdPartyC[n]=tp_sci tp_sci_level+=1
-        if thirdPartyC[n]=tp_tec tp_tec_level+=1
-        if thirdPartyC[n]=tp_tra tp_tra_level+=1
-        if thirdPartyC[n]=tp_med tp_med_level+=1
-        if thirdPartyC[n]=tp_pol tp_pol_level+=1
-        if thirdPartyC[n]=tp_eco tp_eco_level+=1
-        
-        
-        dealt[n]=true // for the investee (flag)
-        getDeal=""
-        }
-    if getDeal="No" or getDeal="N" or getDeal="n"
-        {
-        negotiateDeal=get_string("Do you want to negotiate a deal? (Yes/No)","")
-        }   
-    if negotiateDeal="Yes" or negotiateDeal="Y" or negotiateDeal="y"
-        {
-        var amount, percent;
-        amount=get_string("How much are you offering?",string(askingAmount[n]))
-        percent=get_string("For what Percentage?",string(percentAmount[n]))
-        // now check to see if it is in range...
-        if real(percent)&gt;=percentAmount[n] and  real(percent)&lt;=percentMaxRisk[n]+percentMax[n] and real(amount)&gt;=(askingAmount[n]) and real(amount)&lt;=((askingAmount[n])+((askingAmount[n])*(percentAmount[n]/100)))
+        if investmentCash-askingAmount[n]&gt;0
             {
-            // agree the deal
+            // accepted main deal
             dealsMade+=1
-            timeStamp[n]=month
-            invested[n]=real(amount)
-            percentage[n]=real(percent) // whats our cut?
+            timeStamp[n]=month  
+            invested[n]=askingAmount[n] // for the player
+            percentage[n]=percentAmount[n] // whats our cut?
             term[n]=businessYears[n]*12 // number of months
-            investmentCash-=real(amount) // reduce cash u have
-            dealtAmount[n]=real(amount)
-            dealtPercentage[n]=real(percent)
+            investmentCash-=askingAmount[n] // reduce cash u have
+            dealtAmount[n]=askingAmount[n]
+            dealtPercentage[n]=percentAmount[n]
             // affect supported companies one off
+            
             // global updates to third parites
-        
+            
+            
             if thirdPartyA[n]=tp_env tp_env_level+=1
             if thirdPartyA[n]=tp_ind tp_ind_level+=1
             if thirdPartyA[n]=tp_reg tp_reg_level+=1
@@ -655,16 +597,80 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!=""
             if thirdPartyC[n]=tp_med tp_med_level+=1
             if thirdPartyC[n]=tp_pol tp_pol_level+=1
             if thirdPartyC[n]=tp_eco tp_eco_level+=1
+            
+            
             dealt[n]=true // for the investee (flag)
             getDeal=""
-            //
             }
-        else
+        }
+    if getDeal="No" or getDeal="N" or getDeal="n"
+        {
+        negotiateDeal=get_string("Do you want to negotiate a deal? (Yes/No)","")
+        }   
+    if negotiateDeal="Yes" or negotiateDeal="Y" or negotiateDeal="y"
+        {
+        var amount, percent;
+        amount=get_string("How much are you offering?",string(askingAmount[n]))
+        if investmentCash-amount&gt;0
             {
-            // NO DEAL
-            makeDeal=0
+            percent=get_string("For what Percentage?",string(percentAmount[n]))
+            // now check to see if it is in range...
+            if real(percent)&gt;=percentAmount[n] and  real(percent)&lt;=percentMaxRisk[n]+percentMax[n] and real(amount)&gt;=(askingAmount[n]) and real(amount)&lt;=((askingAmount[n])+((askingAmount[n])*(percentAmount[n]/100)))
+                {
+                // agree the deal
+                dealsMade+=1
+                timeStamp[n]=month
+                invested[n]=real(amount)
+                percentage[n]=real(percent) // whats our cut?
+                term[n]=businessYears[n]*12 // number of months
+                investmentCash-=real(amount) // reduce cash u have
+                dealtAmount[n]=real(amount)
+                dealtPercentage[n]=real(percent)
+                // affect supported companies one off
+                // global updates to third parites
+            
+                if thirdPartyA[n]=tp_env tp_env_level+=1
+                if thirdPartyA[n]=tp_ind tp_ind_level+=1
+                if thirdPartyA[n]=tp_reg tp_reg_level+=1
+                if thirdPartyA[n]=tp_res tp_res_level+=1
+                if thirdPartyA[n]=tp_sci tp_sci_level+=1
+                if thirdPartyA[n]=tp_tec tp_tec_level+=1
+                if thirdPartyA[n]=tp_tra tp_tra_level+=1
+                if thirdPartyA[n]=tp_med tp_med_level+=1
+                if thirdPartyA[n]=tp_pol tp_pol_level+=1
+                if thirdPartyA[n]=tp_eco tp_eco_level+=1
+                
+                if thirdPartyB[n]=tp_env tp_env_level+=1
+                if thirdPartyB[n]=tp_ind tp_ind_level+=1
+                if thirdPartyB[n]=tp_reg tp_reg_level+=1
+                if thirdPartyB[n]=tp_res tp_res_level+=1
+                if thirdPartyB[n]=tp_sci tp_sci_level+=1
+                if thirdPartyB[n]=tp_tec tp_tec_level+=1
+                if thirdPartyB[n]=tp_tra tp_tra_level+=1
+                if thirdPartyB[n]=tp_med tp_med_level+=1
+                if thirdPartyB[n]=tp_pol tp_pol_level+=1
+                if thirdPartyB[n]=tp_eco tp_eco_level+=1
+                
+                if thirdPartyC[n]=tp_env tp_env_level+=1
+                if thirdPartyC[n]=tp_ind tp_ind_level+=1
+                if thirdPartyC[n]=tp_reg tp_reg_level+=1
+                if thirdPartyC[n]=tp_res tp_res_level+=1
+                if thirdPartyC[n]=tp_sci tp_sci_level+=1
+                if thirdPartyC[n]=tp_tec tp_tec_level+=1
+                if thirdPartyC[n]=tp_tra tp_tra_level+=1
+                if thirdPartyC[n]=tp_med tp_med_level+=1
+                if thirdPartyC[n]=tp_pol tp_pol_level+=1
+                if thirdPartyC[n]=tp_eco tp_eco_level+=1
+                dealt[n]=true // for the investee (flag)
+                getDeal=""
+                //
+                }
+            else
+                {
+                // NO DEAL
+                makeDeal=0
+                }
             }
-        
         }
 
     }
@@ -715,7 +721,7 @@ draw_text(200,0,string(numberOfNames))
 if advTime=1 draw_text(0,200,"MONTH: "+string(month)+"  YEAR: "+string(year))
 if advTime=0 draw_text(0,200,"Time is off, press CTRL to toggle on/off.")
 draw_text(0,230,"CASH $"+string(investmentCash))
-
+if investmentCash&lt;0  {draw_text(0,245,"FAILED - No More Investment money left!! - Game over - Press R");advTime=0}
 draw_text(0,260,"Arrow Keys to cycle current deals.. Space to make a deal, Press 'R' to restart test press 'CTRL' to toggle time on/off")
 
 if dealt[n]=false
