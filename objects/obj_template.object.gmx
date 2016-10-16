@@ -309,7 +309,7 @@ n=4; // change this first
     percentAmount[n]=5 // percentage amount
     percentMax[n]=15 // maximum percentage
     // Below is a calculation formula, keep as is.
-    percentMaxRisk[n]=(thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n])*5 // this is calucalted by looking at 3rd party elements and acting as a higher limit
+    percentMaxRisk[n]=(thirdPartyArisk[n]+3+thirdPartyBrisk[n]+3+thirdPartyCrisk[n]+3) // this is calucalted by looking at 3rd party elements and acting as a higher limit
     
     // **************************************** END
     
