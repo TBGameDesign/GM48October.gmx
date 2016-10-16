@@ -63,6 +63,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\Small_Font</font>
+    <font>fonts\mainFont</font>
   </fonts>
   <objects name="objects">
     <objects name="Management">

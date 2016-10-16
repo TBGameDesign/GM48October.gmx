@@ -44,7 +44,7 @@ if thirdPartyA[n]=tp_res or thirdPartyB[n]=tp_res or thirdPartyC[n]=tp_res
 
 if thirdPartyA[n]=tp_reg or thirdPartyB[n]=tp_reg or thirdPartyC[n]=tp_reg
     {
-    draw_sprite(spr_anyLink,0,780,y_loc)
+    draw_sprite(spr_anyLink,0,777,y_loc)
     }
     
 if thirdPartyA[n]=tp_env or thirdPartyB[n]=tp_env or thirdPartyC[n]=tp_env 

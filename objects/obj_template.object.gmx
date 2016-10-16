@@ -163,7 +163,7 @@ n=0;
     investeeName[n]=name[round(random(numberOfNames))]    
     investementLevel[n]=1 // Level 1, the basics
     businessName[n]="Fitness Finders" // buisness name
-    businessDesc[n]="A Startup fitness company looking for intial invstent for facilities, staff and equiptment" // description
+    businessDesc[n]="A Startup fitness company looking for cash." // description
     
     thirdPartyA[n]=tp_med
     thirdPartyArisk[n]=tp_med_level // 0 is green , 1 is orange, 2 is red
@@ -289,7 +289,7 @@ n=4; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     investementLevel[n]=2 // Level 2, something bigger... Riskier...
     businessName[n]="Business" // buisness name
-    businessDesc[n]="A Medical Facility requiring investment for building improvements and facilities to cope with town expansion" // description
+    businessDesc[n]="A Medical Facility requiring investment to expand." // description
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     thirdPartyA[n]=tp_pol
@@ -687,8 +687,10 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!="" and investmentCash-aski
             <string>/// Main for drawing
 
 draw_set_color(c_white)
-draw_set_font(Small_Font)
-
+//draw_set_font(Small_Font)
+draw_set_font(mainFont)
+draw_tpStuff() // draw links
+draw_sprite(spr_panel,0,102,54) // the back panel
 
 // Name Debug
 /*
@@ -698,61 +700,55 @@ for (n=0;n&lt;50;n+=1)
     }
 draw_text(200,0,string(numberOfNames))
 */
+var x_pos=130;
 
-
-if advTime=1 draw_text(0,200,"MONTH: "+string(month)+"  YEAR: "+string(year))
-if advTime=0 draw_text(0,200,"Time is off, press CTRL to toggle on/off.")
+if advTime=1 draw_text(x_pos,200,"MONTH: "+string(month)+"  YEAR: "+string(year))
+if advTime=0 draw_text(x_pos,200,"Time is off, press CTRL to toggle on/off.")
 if investmentCash-askingAmount[n]&lt;0 
 {
 draw_set_color(c_red) 
-draw_text(0,230,"CASH $"+string(investmentCash)+" NOT ENOUGH TO INVEST RIGHT NOW... come back later")
+draw_text(x_pos,230,"CASH $"+string(investmentCash)+" NOT ENOUGH TO INVEST RIGHT NOW... come back later")
 }
 
 if investmentCash-askingAmount[n]&gt;0 
 {
 draw_set_color(c_white) 
-draw_text(0,230,"CASH $"+string(investmentCash))
+draw_text(x_pos,230,"CASH $"+string(investmentCash))
 }
 
-if investmentCash&lt;0  {draw_text(0,245,"FAILED - No More Investment money left!! - Game over - Press R");advTime=0}
+if investmentCash&lt;0  {draw_text(x_pos,245,"FAILED - No More Investment money left!! - Game over - Press R");advTime=0}
 draw_set_color(c_white)
-draw_text(0,260,"Arrow Keys to cycle current deals.. Space to make a deal, Press 'R' to restart test press 'CTRL' to toggle time on/off and 'S' to sell out your investment")
+draw_text(x_pos,260,"Arrow Keys to cycle current deals.. Space to make a deal.")
+draw_text(x_pos,290,"Press 'R' to restart test press 'CTRL' to toggle time on/off") 
+draw_text(x_pos,320,"Press 'S' to sell out your investment.")
+
+
 
 if sold[n]=true
     {
-
-    draw_text(0,30,"Investee Name: "+string(investeeName[n]))
-    draw_text(0,45,"Business Level: "+string(investementLevel[n]))
-    draw_text(0,60,"Business Name: "+string(businessName[n]))
-    draw_text(0,75,"Business Descritption: "+string(businessDesc[n]))
-    draw_text(0,90,"SOLD OUT!")
-    
-    draw_tpStuff()
-   
+    draw_text(x_pos,100,"Investee Name: "+string(investeeName[n]))
+    draw_text(x_pos,115,"Business Level: "+string(investementLevel[n]))
+    draw_text(x_pos,130,"Business Name: "+string(businessName[n]))
+    draw_text(x_pos,145,"Business Descritption: "+string(businessDesc[n]))
+    draw_text(x_pos,165,"SOLD OUT!")
     }
 
 
 if dealt[n]=false and sold[n]=false
     {
-
-    draw_text(0,30,"Investee Name: "+string(investeeName[n]))
-    draw_text(0,45,"Business Level: "+string(investementLevel[n]))
-    draw_text(0,60,"Business Name: "+string(businessName[n]))
-    draw_text(0,75,"Business Descritption: "+string(businessDesc[n]))
-    draw_text(0,90,"Asking amount is $"+string(askingAmount[n])+" for "+string(percentAmount[n])+"%")
-    
-    draw_tpStuff()
-
+    draw_text(x_pos,100,"Investee Name: "+string(investeeName[n]))
+    draw_text(x_pos,115,"Business Level: "+string(investementLevel[n]))
+    draw_text(x_pos,130,"Business Name: "+string(businessName[n]))
+    draw_text(x_pos,145,"Business Descritption: "+string(businessDesc[n]))
+    draw_text(x_pos,165,"Asking amount is $"+string(askingAmount[n])+" for "+string(percentAmount[n])+"%")
     }
 
 if dealt[n]=true and sold[n]=false
     {
-    draw_text(0,30,"Deal Made with "+string(investeeName[n])+" in the "+string(businessName[n])+" Business.")
-    draw_text(0,45,"Invested : "+string(dealtAmount[n])+" for "+string(dealtPercentage[n])+"%")
-    draw_text(0,60,"Investors Share Forecast: $"+string( profits[n]))
-    draw_text(0,75,"Expected on Month : "+string( timeStamp[n])+" and each subsequent 12 months.")
-
-    draw_tpStuff()
+    draw_text(x_pos,100,"Deal Made with "+string(investeeName[n])+" in the "+string(businessName[n])+" Business.")
+    draw_text(x_pos,115,"Invested : "+string(dealtAmount[n])+" for "+string(dealtPercentage[n])+"%")
+    draw_text(x_pos,130,"Investors Share Forecast: $"+string( profits[n]))
+    draw_text(x_pos,165,"Expected on Month : "+string( timeStamp[n])+" and each subsequent 12 months.")
     }
 
 </string>
