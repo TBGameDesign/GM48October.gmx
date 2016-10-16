@@ -785,7 +785,7 @@ n+=1; // change this first
     
     investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Gift Horses" // buisness name
-    businessDesc[n]="A consignment shop which collects unwanted christmas and birthday presents" // description
+    businessDesc[n]="A consignment shop which collects unwanted gifts" // description
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
     // env=Environment ; ind=Industry  ; reg=Regulation ; res=Resources ; sci=Science 
