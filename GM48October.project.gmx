@@ -4,12 +4,7 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound">
-    <sound>sound\sou_0</sound>
-    <sound>sound\sou_1</sound>
-    <sound>sound\sou_2</sound>
-    <sound>sound\sou_3</sound>
-  </sounds>
+  <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="Player">
       <sprite>sprites\s_Player_1</sprite>
@@ -43,6 +38,9 @@
     <sprites name="GUI">
       <sprite>sprites\spr_exit</sprite>
       <sprite>sprites\spr_bar</sprite>
+      <sprite>sprites\spr_anyLink</sprite>
+      <sprite>sprites\spr_rightLink</sprite>
+      <sprite>sprites\spr_leftLink</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -59,10 +57,6 @@
     <path>paths\path_temp3</path>
   </paths>
   <scripts name="scripts">
-    <script>scripts\scr_temp0.gml</script>
-    <script>scripts\scr_temp1.gml</script>
-    <script>scripts\scr_temp2.gml</script>
-    <script>scripts\scr_temp3.gml</script>
     <script>scripts\updateParties.gml</script>
     <script>scripts\draw_tpStuff.gml</script>
   </scripts>
@@ -70,29 +64,6 @@
     <font>fonts\Small_Font</font>
   </fonts>
   <objects name="objects">
-    <objects name="Player">
-      <object>objects\obj_PlayerParent</object>
-      <object>objects\obj_Player</object>
-      <object>objects\obj_Player1</object>
-      <object>objects\obj_Player2</object>
-    </objects>
-    <objects name="World">
-      <object>objects\obj_Grass</object>
-      <object>objects\obj_ObjectParent</object>
-      <object>objects\obj_Tree</object>
-    </objects>
-    <objects name="Enemies">
-      <object>objects\obj_EnemyParent</object>
-      <object>objects\obj_Enemy</object>
-      <object>objects\obj_Enemy1</object>
-      <object>objects\obj_Enemy2</object>
-    </objects>
-    <objects name="Effects">
-      <object>objects\obj_Effect0</object>
-      <object>objects\obj_Effect1</object>
-      <object>objects\obj_Effect2</object>
-      <object>objects\obj_Effect3</object>
-    </objects>
     <objects name="Management">
       <object>objects\obj_template</object>
       <object>objects\obj_quitButton</object>
@@ -100,9 +71,6 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_testing</room>
-    <room>rooms\rm_MainMenu</room>
-    <room>rooms\rm_GameWorld</room>
-    <room>rooms\rm_GameOver</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
