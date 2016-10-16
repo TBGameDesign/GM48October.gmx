@@ -41,6 +41,7 @@
       <sprite>sprites\spr_anyLink</sprite>
       <sprite>sprites\spr_rightLink</sprite>
       <sprite>sprites\spr_leftLink</sprite>
+      <sprite>sprites\spr_panel</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -67,6 +68,7 @@
     <objects name="Management">
       <object>objects\obj_template</object>
       <object>objects\obj_quitButton</object>
+      <object>objects\obj_Panel</object>
     </objects>
   </objects>
   <rooms name="rooms">
