@@ -42,6 +42,7 @@
     </sprites>
     <sprites name="GUI">
       <sprite>sprites\spr_exit</sprite>
+      <sprite>sprites\spr_bar</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">

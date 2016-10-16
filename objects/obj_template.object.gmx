@@ -818,52 +818,37 @@ if dealt[n]=true and sold[n]=false
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// DEBUG
-    draw_set_color(c_black)
+            <string>/// Draw Bars
+    draw_set_color(c_white)
     //draw_text(0,100,"DEBUG INFO:")
     //draw_text(0,120,"Max percentage  : "+string(percentMax[n])+"%")
     //draw_text(0,130,"Max Risk Based% : "+string(percentMaxRisk[n]+percentMax[n])+"%")
+    
+    
 
-    var yy=300
-draw_text(0,yy,"Environment") // if the environment is poor, it can affect the ability to get natural resources
-yy+=10
-draw_text(0,yy,string(tp_env_level)) // 0 is green, 1 is orange, 2 is red
-yy+=10
-draw_text(0,yy,"Industry") // if industry is poor, it can affect the ability to get mass manufacturing done
-yy+=10
-draw_text(0,yy,string(tp_ind_level)) // 0 is green, 1 is orange, 2 is red
-yy+=10
-draw_text(0,yy,"Regulation")// if regulation is poor, it can affect the ability to do anything food or animal related
-yy+=10
-draw_text(0,yy,string(tp_reg_level)) // 0 is green, 1 is orange, 2 is red
-yy+=10
-draw_text(0,yy,"Resources")// if rousources are poor, it can affect the ability to produce anything inventive
-yy+=10
-draw_text(0,yy,string(tp_res_level)) // 0 is green, 1 is orange, 2 is red
-yy+=10
-draw_text(0,yy,"Science")// if science is poor, it can affect the ability to prove a new idea or lucrative venture
-yy+=10
-draw_text(0,yy,string(tp_sci_level)) // 0 is green, 1 is orange, 2 is red
-yy+=10
-draw_text(0,yy,"Technology")// if technology is poor, it can affect the ability to run a small-medium business
-yy+=10
-draw_text(0,yy,string(tp_tec_level)) // 0 is green, 1 is orange, 2 is red
-yy+=10
-draw_text(0,yy,"Transport")// if transport is poor, it can affect the logistics of a business dependant on transportation of goods
-yy+=10
-draw_text(0,yy,string(tp_tra_level)) // 0 is green, 1 is orange, 2 is red
-yy+=10
-draw_text(0,yy,"Media")// if media is poor, it can affect the ability to advertise or market a business that is media focussed
-yy+=10
-draw_text(0,yy,string(tp_med_level)) // 0 is green, 1 is orange, 2 is red
-yy+=10
-draw_text(0,yy,"Politics")// if politics is poor, it can affect the ability to negotiate
-yy+=10
-draw_text(0,yy,string(tp_pol_level)) // 0 is green, 1 is orange, 2 is red
-yy+=10
-draw_text(0,yy,"Economy")// if the economy is poor, it can affect the ability to make profit each year that it is so.
-yy+=10
-draw_text(0,yy,string(tp_eco_level)) // 0 is green, 1 is orange, 2 is red
+    // limits for sprite and also helps game boundary (not over inflating)
+    if tp_env_level&gt;3 tp_env_level=3
+    if tp_ind_level&gt;3 tp_ind_level=3
+    if tp_reg_level&gt;3 tp_reg_level=3
+    if tp_res_level&gt;3 tp_res_level=3
+    if tp_sci_level&gt;3 tp_sci_level=3 
+    if tp_tec_level&gt;3 tp_tec_level=3  
+    if tp_tra_level&gt;3 tp_tra_level=3
+    if tp_med_level&gt;3 tp_med_level=3 
+    if tp_pol_level&gt;3 tp_pol_level=3 
+    if tp_eco_level&gt;3 tp_eco_level=3 
+ 
+    
+    draw_sprite(spr_bar,tp_med_level+3,48,500)
+    draw_sprite(spr_bar,tp_sci_level+3,148,500)
+    draw_sprite(spr_bar,tp_pol_level+3,244,500)
+    draw_sprite(spr_bar,tp_tec_level+3,340,500)
+    draw_sprite(spr_bar,tp_tra_level+3,434,500)
+    draw_sprite(spr_bar,tp_ind_level+3,528,500)
+    draw_sprite(spr_bar,tp_eco_level+3,626,500)
+    draw_sprite(spr_bar,tp_res_level+3,720,500)
+    draw_sprite(spr_bar,tp_reg_level+3,814,500)
+    draw_sprite(spr_bar,tp_env_level+3,908,500)
 
 
 </string>
