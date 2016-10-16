@@ -61,12 +61,14 @@ for (n=0;n&lt;1000;n+=1) // a nice bank of possibilities
     
     // can be random range based on level
     askingAmount[n]=0 // amount needed
-    
+    timeStamp[n]=0
+    timeStampPaid[n]=0
     // can be random range based on level
     percentAmount[n]=0 // percentage amount
     percentMax[n]=0 // maximum percentage
     percentMaxRisk[n]=0 // this is calucalted by looking at 3rd party elements and acting as a higher limit
     initMonth[n]=0 // initialised month
+    profits[n]=0 // for working out profits
     // ** NOTES
     // percentMaxRisk = thirdPartyArisk[n]*5 + thirdPartyBrisk[n]*5 + thirdPartyCrisk[n]*5 = a possible additional 30% given away depending of riskyness
     // range(percentAmount , percentMax+percentMaxRisk)
@@ -284,6 +286,11 @@ counter+=1
 if counter&gt;=eachMonth*room_speed // one month
     {
     month+=1
+    // calc profits...
+    for (p=0;p&lt;1000;p+=1)
+        {
+        profits[p]= ((dealtAmount[p]*((100-dealtPercentage[p])+dealtPercentage[p])) * (dealtPercentage[p]/100)) + ((thirdPartyArisk[p]*10000)+(thirdPartyBrisk[p]*10000)+(thirdPartyCrisk[p]*10000))
+        }
     counter=0
     // each party get diminished by the percentage of chance that it has inherited
     if 1=clamp(round(random(50+tp_env_level*20)),1,200)
@@ -353,6 +360,16 @@ for (nn=0;nn&lt;1000;nn+=1)
     
     }
     
+// get paid.. happening every cycle... 
+
+for (j=0;j&lt;dealsMade;j+=1)
+    {
+    if timeStamp[j] % 12 = 0 // end of a year for any particular company
+        {
+            if timeStampPaid[j]=0 {investmentCash+=profits[j];timeStampPaid[j]=1}
+
+        }
+    }
 
 </string>
           </argument>
@@ -703,6 +720,8 @@ yy+=10
 draw_text(0,yy,"Economy")// if the economy is poor, it can affect the ability to make profit each year that it is so.
 yy+=10
 draw_text(0,yy,string(tp_eco_level)) // 0 is green, 1 is orange, 2 is red
+
+
 </string>
           </argument>
         </arguments>
