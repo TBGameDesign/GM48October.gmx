@@ -46,6 +46,8 @@
       <sprite>sprites\spr_panel</sprite>
       <sprite>sprites\spr_outline</sprite>
       <sprite>sprites\spr_begin</sprite>
+      <sprite>sprites\spr_leftArrow</sprite>
+      <sprite>sprites\spr_rightArrow</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
