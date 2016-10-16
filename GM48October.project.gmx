@@ -61,6 +61,7 @@
     <script>scripts\scr_temp1.gml</script>
     <script>scripts\scr_temp2.gml</script>
     <script>scripts\scr_temp3.gml</script>
+    <script>scripts\updateParties.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\Small_Font</font>
