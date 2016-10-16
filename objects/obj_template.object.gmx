@@ -175,7 +175,7 @@ for (a=1;a&lt;string_length(names);a+=1)
 // **** BUSINESS 0 **** 
 n=0;
     investeeName[n]=name[round(random(numberOfNames))]    
-    investementLevel[n]=1 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); 
     businessName[n]="Fitness Finders" // buisness name
     businessDesc[n]="A Startup fitness company looking for cash." // description
     
@@ -189,7 +189,7 @@ n=0;
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -204,7 +204,7 @@ n=0;
 
 n+=1;
     investeeName[n]=name[round(random(numberOfNames))]    
-    investementLevel[n]=1 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Helicopter Tours" // buisness name
     businessDesc[n]="A Helicopter tour company looking for investment" // description
     
@@ -218,7 +218,7 @@ n+=1;
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -233,7 +233,7 @@ n+=1;
 
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
-    investementLevel[n]=1 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Big Time Tiling" // buisness name
     businessDesc[n]="A large Tiling company that supplies and fits Tiles" // description
     
@@ -249,7 +249,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -264,7 +264,7 @@ n+=1; // change this first
 
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
-    investementLevel[n]=1 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Fabulous Flowers" // buisness name
     businessDesc[n]="A family run flower company looking to franchise" // description
     
@@ -280,7 +280,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -295,7 +295,7 @@ n+=1; // change this first
 
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
-    investementLevel[n]=2 // Level 2, something bigger... Riskier...
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Armchair Engineering" // buisness name
     businessDesc[n]="A Medical Facility requiring investment to expand." // description
     
@@ -312,7 +312,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -327,7 +327,7 @@ n+=1; // change this first
 
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
-    investementLevel[n]=5 // Level 1, the basics
+    investementLevel[n]=5 
     businessName[n]="President" // buisness name
     businessDesc[n]="I wanna be president!" // description
     
@@ -346,7 +346,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -362,7 +362,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Horticulture Education" // buisness name
     businessDesc[n]="Teaching people how to grow" // description
     
@@ -381,7 +381,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -397,7 +397,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Avalanche Design" // buisness name
     businessDesc[n]="Architectual Design Firm" // description
     
@@ -416,7 +416,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -432,7 +432,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Better Fish" // buisness name
     businessDesc[n]="An Online Dating Site" // description
     
@@ -451,7 +451,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -467,7 +467,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Black Hat Dusters" // buisness name
     businessDesc[n]="A Home Cleaning Company" // description
     
@@ -486,7 +486,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -502,7 +502,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Card-e-ology" // buisness name
     businessDesc[n]="A specialy store that makes greeting cards" // description
     
@@ -521,7 +521,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -537,7 +537,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Cherry Asphalt" // buisness name
     businessDesc[n]="A Dance Company" // description
     
@@ -556,7 +556,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -572,7 +572,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Deep Blue See" // buisness name
     businessDesc[n]="An Optometrist Office" // description
     
@@ -591,7 +591,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -607,7 +607,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Edgewise Publicity" // buisness name
     businessDesc[n]="A brand new Journalist Networking firm" // description
     
@@ -626,7 +626,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -642,7 +642,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Ergonomic Envisioning" // buisness name
     businessDesc[n]="A HomeGoods and Shapely Furniture Store" // description
     
@@ -661,7 +661,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -677,7 +677,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Orbit Runner" // buisness name
     businessDesc[n]="A Court and Personal Courior Service" // description
     
@@ -696,7 +696,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -712,7 +712,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Feast West" // buisness name
     businessDesc[n]="The best steak restaurant ever" // description
     
@@ -731,7 +731,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -747,7 +747,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Fringe Factory" // buisness name
     businessDesc[n]="A womans clothing store" // description
     
@@ -766,7 +766,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -782,7 +782,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Gift Horses" // buisness name
     businessDesc[n]="A consignment shop which collects unwanted christmas and birthday presents" // description
     
@@ -801,7 +801,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -817,7 +817,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Granite Planet" // buisness name
     businessDesc[n]="The worlds first private union" // description
     
@@ -836,7 +836,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -852,7 +852,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="HomeLand" // buisness name
     businessDesc[n]="A large real estate company" // description
     
@@ -871,7 +871,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -887,7 +887,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Hot Belly Underground" // buisness name
     businessDesc[n]="Specialize in chicken wings that can kill you" // description
     
@@ -906,7 +906,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -922,7 +922,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Information Plantation" // buisness name
     businessDesc[n]="A community cleanup and neighborhood watch company" // description
     
@@ -941,7 +941,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -957,7 +957,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Intraglobal Holdings" // buisness name
     businessDesc[n]="A small bank" // description
     
@@ -976,7 +976,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -992,7 +992,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Jezebel’s Juice" // buisness name
     businessDesc[n]="A bellydancing studio" // description
     
@@ -1011,7 +1011,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -1027,7 +1027,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Kiosk Systems" // buisness name
     businessDesc[n]="A company that helps people run hot-dog-carts" // description
     
@@ -1046,7 +1046,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -1062,7 +1062,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Leafblower’s Union" // buisness name
     businessDesc[n]="Where else can you find the best compost" // description
     
@@ -1081,7 +1081,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -1097,7 +1097,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Liquid Mountain" // buisness name
     businessDesc[n]="A bar and nightclub" // description
     
@@ -1116,7 +1116,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -1132,7 +1132,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Maine Main" // buisness name
     businessDesc[n]="A Bookstore dedicated to Stephen King" // description
     
@@ -1151,7 +1151,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -1167,7 +1167,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Perk and Peak" // buisness name
     businessDesc[n]="A Designer clothing distributor" // description
     
@@ -1186,7 +1186,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -1202,7 +1202,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]    
     
-    investementLevel[n]=2 // Level 1, the basics
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
     businessName[n]="Neurocell" // buisness name
     businessDesc[n]="A Stemcell research lab" // description
     
@@ -1221,7 +1221,7 @@ n+=1; // change this first
     
     // percentage system
     percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax div 2 // could be 19 to 15 to 10
+    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
