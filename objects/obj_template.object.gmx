@@ -28,6 +28,7 @@
             <string>/// Template layout
 month=1 // for using time
 year=0 // year
+advTime=0 // for advancing time
 counter=0 // time counter
 eachMonth=1 // ticks per month (seconds)
 tp_change=777 // third party change of state randomiser
@@ -371,7 +372,7 @@ n=0; // used for indexing do not remove
           <argument>
             <kind>1</kind>
             <string>/// increase time and do any other tweaks
-counter+=1
+if advTime=1 counter+=1
 if counter&gt;=eachMonth*room_speed // one month
     {
     month+=1
@@ -514,7 +515,10 @@ if keyboard_check_pressed(vk_space)
     makeDeal=1
     }
     
-
+if keyboard_check_pressed(vk_control) 
+    {
+    advTime=1-advTime // toggle advance month
+    }
     
     
     
@@ -708,10 +712,11 @@ draw_text(200,0,string(numberOfNames))
 */
 
 
-draw_text(0,200,"MONTH: "+string(month)+"  YEAR: "+string(year))
+if advTime=1 draw_text(0,200,"MONTH: "+string(month)+"  YEAR: "+string(year))
+if advTime=0 draw_text(0,200,"Time is off, press CTRL to toggle on/off.")
 draw_text(0,230,"CASH $"+string(investmentCash))
 
-draw_text(0,260,"Arrow Keys to cycle current deals.. Space to make a deal, Press 'R' to restart test")
+draw_text(0,260,"Arrow Keys to cycle current deals.. Space to make a deal, Press 'R' to restart test press 'CTRL' to toggle time on/off")
 
 if dealt[n]=false
     {
