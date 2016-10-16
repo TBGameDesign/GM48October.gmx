@@ -28,6 +28,7 @@
             <string>/// Template layout
 start=true
 dark_color=make_color_rgb(55,76,67)
+light_color=make_color_rgb(160,190,175)
 audio_play_sound(sou_music,1,1)
 
 month=1 // for using time
@@ -1546,11 +1547,11 @@ draw_text(x_pos,230,"CASH $"+string(investmentCash))
 }
 
 if investmentCash&lt;0  {draw_text(x_pos,245,"FAILED - No More Investment money left!! - Game over - Press R");advTime=0}
-draw_set_color(dark_color)
-draw_text(x_pos,260,"Pre-Alpha controls: Arrow Keys to browse investments")
-draw_text(x_pos,290,"Press 'R' to restart 'CTRL' will toggle time on/off") 
-draw_text(x_pos,320,"Press 'S' to sell out your investment.")
-
+draw_set_color(light_color)
+draw_text(x_pos,510,"Pre-Alpha controls: Arrow Keys to browse investments")
+draw_text(x_pos,530,"Press 'R' to restart 'CTRL' will toggle time on/off") 
+draw_text(x_pos,550,"Press 'S' to sell out your investment.")
+draw_text(x_pos,570,"Space to invest or negotiate percentage.")
 
 draw_set_color(dark_color)
 if sold[n]=true
