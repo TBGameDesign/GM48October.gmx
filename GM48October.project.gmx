@@ -4,7 +4,9 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\sou_music</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Player">
       <sprite>sprites\s_Player_1</sprite>
@@ -42,6 +44,8 @@
       <sprite>sprites\spr_rightLink</sprite>
       <sprite>sprites\spr_leftLink</sprite>
       <sprite>sprites\spr_panel</sprite>
+      <sprite>sprites\spr_outline</sprite>
+      <sprite>sprites\spr_begin</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -68,6 +72,7 @@
   </fonts>
   <objects name="objects">
     <objects name="Management">
+      <object>objects\obj_start</object>
       <object>objects\obj_template</object>
       <object>objects\obj_quitButton</object>
       <object>objects\obj_Panel</object>

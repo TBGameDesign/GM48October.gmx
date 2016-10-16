@@ -26,6 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>/// Template layout
+start=true
+dark_color=make_color_rgb(55,76,67)
+audio_play_sound(sou_music,1,1)
+
 month=1 // for using time
 year=0 // year
 advTime=0 // for advancing time
@@ -1490,7 +1494,7 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!="" and investmentCash-aski
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -1509,7 +1513,7 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!="" and investmentCash-aski
             <kind>1</kind>
             <string>/// Main for drawing
 
-draw_set_color(c_white)
+
 //draw_set_font(Small_Font)
 draw_set_font(mainFont)
 draw_tpStuff() // draw links
@@ -1523,56 +1527,62 @@ for (n=0;n&lt;50;n+=1)
     }
 draw_text(200,0,string(numberOfNames))
 */
+draw_set_color(dark_color)
+
 var x_pos=130;
 
 if advTime=1 draw_text(x_pos,200,"MONTH: "+string(month)+"  YEAR: "+string(year))
 if advTime=0 draw_text(x_pos,200,"Time is off, press CTRL to toggle on/off.")
 if investmentCash-askingAmount[n]&lt;0 
 {
-draw_set_color(c_red) 
+draw_set_color(make_color_rgb(200,26,27))
 draw_text(x_pos,230,"CASH $"+string(investmentCash)+" NOT ENOUGH TO INVEST RIGHT NOW... come back later")
 }
 
 if investmentCash-askingAmount[n]&gt;=0 
 {
-draw_set_color(c_white) 
+draw_set_color(dark_color)
 draw_text(x_pos,230,"CASH $"+string(investmentCash))
 }
 
 if investmentCash&lt;0  {draw_text(x_pos,245,"FAILED - No More Investment money left!! - Game over - Press R");advTime=0}
-draw_set_color(c_white)
-draw_text(x_pos,260,"Arrow Keys to cycle current deals.. Space to make a deal.")
-draw_text(x_pos,290,"Press 'R' to restart test press 'CTRL' to toggle time on/off") 
+draw_set_color(dark_color)
+draw_text(x_pos,260,"Pre-Alpha controls: Arrow Keys to browse investments")
+draw_text(x_pos,290,"Press 'R' to restart 'CTRL' will toggle time on/off") 
 draw_text(x_pos,320,"Press 'S' to sell out your investment.")
 
 
-
+draw_set_color(dark_color)
 if sold[n]=true
     {
-    draw_text(x_pos,100,"Investee Name: "+string(investeeName[n]))
-    draw_text(x_pos,115,"Business Level: "+string(investementLevel[n]))
-    draw_text(x_pos,130,"Business Name: "+string(businessName[n]))
-    draw_text(x_pos,145,"Business Description: "+string(businessDesc[n]))
-    draw_text(x_pos,165,"SOLD OUT!")
+    draw_text(x_pos,75,"Investee Name: "+string(investeeName[n]))
+    draw_text(x_pos,100,"Business Level: "+string(investementLevel[n]))
+    draw_text(x_pos,125,"Business Name: "+string(businessName[n]))
+    draw_text(x_pos,150,"Business Description: "+string(businessDesc[n]))
+    draw_text(x_pos,180,"SOLD OUT!")
     }
 
 
 if dealt[n]=false and sold[n]=false
     {
-    draw_text(x_pos,100,"Investee Name: "+string(investeeName[n]))
-    draw_text(x_pos,115,"Business Level: "+string(investementLevel[n]))
-    draw_text(x_pos,130,"Business Name: "+string(businessName[n]))
-    draw_text(x_pos,145,"Business Description: "+string(businessDesc[n]))
-    draw_text(x_pos,165,"Asking amount is $"+string(askingAmount[n])+" for "+string(percentAmount[n])+"%")
+    draw_text(x_pos,75,"Investee Name: "+string(investeeName[n]))
+    draw_text(x_pos,100,"Business Level: "+string(investementLevel[n]))
+    draw_text(x_pos,125,"Business Name: "+string(businessName[n]))
+    draw_text(x_pos,150,"Business Description: "+string(businessDesc[n]))
+    draw_text(x_pos,180,"Asking amount is $"+string(askingAmount[n])+" for "+string(percentAmount[n])+"%")
     }
 
 if dealt[n]=true and sold[n]=false
     {
-    draw_text(x_pos,100,"Deal Made with "+string(investeeName[n])+" in the "+string(businessName[n])+" Business.")
-    draw_text(x_pos,115,"Invested : "+string(dealtAmount[n])+" for "+string(dealtPercentage[n])+"%")
-    draw_text(x_pos,130,"Investors Share Forecast: $"+string( profits[n]))
-    draw_text(x_pos,165,"Expected on Month : "+string( timeStamp[n])+" and each subsequent 12 months.")
+    draw_text(x_pos,75,"Deal Made with "+string(investeeName[n])+" in the "+string(businessName[n])+" Business.")
+    draw_text(x_pos,100,"Invested : "+string(dealtAmount[n])+" for "+string(dealtPercentage[n])+"%")
+    draw_text(x_pos,125,"Investors Share Forecast: $"+string( profits[n]))
+    draw_text(x_pos,180,"Expected on Month : "+string( timeStamp[n])+" and each subsequent 12 months.")
     }
+    
+    
+
+
 
 </string>
           </argument>
@@ -1627,6 +1637,29 @@ if dealt[n]=true and sold[n]=false
     draw_sprite(spr_bar,tp_env_level+3,908,500)
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw_outline
+
+if start=true draw_sprite(spr_outline,0,room_width/2,room_height/2)
 </string>
           </argument>
         </arguments>
