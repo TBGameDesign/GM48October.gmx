@@ -27,8 +27,9 @@
             <kind>1</kind>
             <string>/// Template layout
 month=1 // for using time
+year=0 // year
 counter=0 // time counter
-eachMonth=3 // ticks per month (seconds)
+eachMonth=1 // ticks per month (seconds)
 tp_change=777 // third party change of state randomiser
 makeDeal=0 // state machine for making deals
 investmentCash=1000000 // starting cash
@@ -287,6 +288,7 @@ if counter&gt;=eachMonth*room_speed // one month
     {
     month+=1
     // calc profits...
+    if month=13 {year+=1;month=1}
     for (p=0;p&lt;1000;p+=1)
         {
         profits[p]= (((dealtAmount[p]*((100-dealtPercentage[p])+dealtPercentage[p])) * (dealtPercentage[p]/100)))/100 + ((thirdPartyArisk[p]*10000)+(thirdPartyBrisk[p]*10000)+(thirdPartyCrisk[p]*10000))
@@ -366,12 +368,19 @@ for (j=0;j&lt;1000;j+=1)
     {
     if timeStamp[j]&gt;0
         {
-        if  month % timeStamp[j] = 0 // end of a year for any particular company
+        if  month = (timeStamp[j]) // end of a year for any particular company
             {
                 if timeStampPaid[j]=0 {investmentCash+=profits[j];timeStampPaid[j]=1}
     
             }
+        if month = (timeStamp[j]+1) // is it the next month?
+            {
+            // reset paid flag
+            timeStampPaid[j]=0
+            }
+            
         }
+    
     }
 
 </string>
@@ -443,8 +452,8 @@ if keyboard_check_pressed(vk_space)
             <string>/// check and update deals made
 if makeDeal=1 and dealt[n]=false and investeeName[n]!=""
     {
-    getDeal=get_string("Do you want to make a deal? (Yes/No) (say No to negotiate)","Y/N")
-    if getDeal="Yes" or getDeal="Y"
+    getDeal=get_string("Do you want to make a deal? (Yes/No) (say No to negotiate)","")
+    if getDeal="Yes" or getDeal="Y" or getDeal="y"
         {
         // accepted main deal
         dealsMade+=1
@@ -497,11 +506,11 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!=""
         dealt[n]=true // for the investee (flag)
         getDeal=""
         }
-    if getDeal="No" or getDeal="N"
+    if getDeal="No" or getDeal="N" or getDeal="n"
         {
-        negotiateDeal=get_string("Do you want to negotiate a deal? (Yes/No)","Y/N")
+        negotiateDeal=get_string("Do you want to negotiate a deal? (Yes/No)","")
         }   
-    if negotiateDeal="Yes" or negotiateDeal="Y"
+    if negotiateDeal="Yes" or negotiateDeal="Y" or negotiateDeal="y"
         {
         var amount, percent;
         amount=get_string("How much are you offering?",string(askingAmount[n]))
@@ -610,7 +619,7 @@ draw_text(200,0,string(numberOfNames))
 */
 
 
-draw_text(0,200,"MONTH: "+string(month)+" of 120")
+draw_text(0,200,"MONTH: "+string(month)+"  YEAR: "+string(year))
 draw_text(0,230,"CASH $"+string(investmentCash))
 
 draw_text(0,260,"Arrow Keys to cycle current deals.. Space to make a deal, Press 'R' to restart test")
@@ -657,7 +666,8 @@ else
     draw_text(0,10,"Invested : "+string(dealtAmount[n])+" for "+string(dealtPercentage[n])+"%")
     draw_text(0,20,"Profit Forecast: $"+string( profits[n]))
     draw_text(0,30,"Expected on Month : "+string( timeStamp[n])+" and each subsequent 12 months.")
-        if thirdPartyArisk[n]&lt;-2 draw_set_color(make_colour_rgb(128,0,128)) 
+    
+    if thirdPartyArisk[n]&lt;-2 draw_set_color(make_colour_rgb(128,0,128)) 
     if thirdPartyArisk[n]=-2 draw_set_color(make_colour_rgb(255,0,0)) 
     if thirdPartyArisk[n]=-1 draw_set_color(make_colour_rgb(255,128,0)) 
     if thirdPartyArisk[n]=0 draw_set_color(make_colour_rgb(255,255,0)) // -2,-1,0,1,2 * 20 as an offset to a 50 sided dice as a chance of chaing for the worst (diminish)
