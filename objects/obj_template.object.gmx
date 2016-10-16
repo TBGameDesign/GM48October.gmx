@@ -170,7 +170,7 @@ for (a=1;a&lt;string_length(names);a+=1)
 // *************** BUSINESS START *************** 
 n+=1;
     investeeName[n]=name[round(random(numberOfNames))]
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="BUSINESS NAME" // buisness name
     businessDesc[n]="BUSINESS DESCRIPTION" // description
     
@@ -232,7 +232,7 @@ n=0;
 
 n+=1;
     investeeName[n]=name[round(random(numberOfNames))]
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Helicopter Tours" // buisness name
     businessDesc[n]="A Helicopter tour company looking for investment" // description
     
@@ -261,7 +261,7 @@ n+=1;
 
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Big Time Tiling" // buisness name
     businessDesc[n]="A large Tiling company that supplies and fits Tiles" // description
     
@@ -290,7 +290,7 @@ n+=1; // change this first
 
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Fabulous Flowers" // buisness name
     businessDesc[n]="A family run flower company looking to franchise" // description
     
@@ -319,7 +319,7 @@ n+=1; // change this first
 
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Armchair Engineering" // buisness name
     businessDesc[n]="A Medical Facility requiring investment to expand." // description
     
@@ -382,7 +382,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Horticulture Education" // buisness name
     businessDesc[n]="Teaching people how to grow" // description
     
@@ -415,7 +415,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Avalanche Design" // buisness name
     businessDesc[n]="Architectual Design Firm" // description
     
@@ -448,7 +448,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Better Fish" // buisness name
     businessDesc[n]="An Online Dating Site" // description
     
@@ -481,7 +481,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Black Hat Dusters" // buisness name
     businessDesc[n]="A Home Cleaning Company" // description
     
@@ -514,7 +514,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Card-e-ology" // buisness name
     businessDesc[n]="A specialy store that makes greeting cards" // description
     
@@ -547,7 +547,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Cherry Asphalt" // buisness name
     businessDesc[n]="A Dance Academy" // description
     
@@ -580,7 +580,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Deep Blue See" // buisness name
     businessDesc[n]="An Optometrist Office" // description
     
@@ -613,7 +613,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Edgewise Publicity" // buisness name
     businessDesc[n]="A brand new Journalist Networking firm" // description
     
@@ -646,7 +646,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Ergonomic Envisioning" // buisness name
     businessDesc[n]="A HomeGoods and Shapely Furniture Store" // description
     
@@ -679,7 +679,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Orbit Runner" // buisness name
     businessDesc[n]="A Court and Personal Courior Service" // description
     
@@ -712,7 +712,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Feast West" // buisness name
     businessDesc[n]="The best steak restaurant ever" // description
     
@@ -745,7 +745,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Fringe Factory" // buisness name
     businessDesc[n]="A womans clothing store" // description
     
@@ -778,7 +778,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Gift Horses" // buisness name
     businessDesc[n]="A consignment shop which collects unwanted christmas and birthday presents" // description
     
@@ -811,7 +811,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Granite Planet" // buisness name
     businessDesc[n]="The worlds first private union" // description
     
@@ -844,7 +844,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="HomeLand" // buisness name
     businessDesc[n]="A large real estate company" // description
     
@@ -877,7 +877,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Hot Belly Underground" // buisness name
     businessDesc[n]="Specialize in chicken wings that can kill you" // description
     
@@ -910,7 +910,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Information Plantation" // buisness name
     businessDesc[n]="A community cleanup and neighborhood watch company" // description
     
@@ -943,7 +943,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Intraglobal Holdings" // buisness name
     businessDesc[n]="A small bank" // description
     
@@ -976,7 +976,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Jezebel’s Juice" // buisness name
     businessDesc[n]="A bellydancing studio" // description
     
@@ -1009,7 +1009,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Kiosk Systems" // buisness name
     businessDesc[n]="A company that helps people run hot-dog-carts" // description
     
@@ -1042,7 +1042,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Leafblower’s Union" // buisness name
     businessDesc[n]="Where else can you find the best compost" // description
     
@@ -1075,7 +1075,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Liquid Mountain" // buisness name
     businessDesc[n]="A bar and nightclub" // description
     
@@ -1108,7 +1108,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Maine Main" // buisness name
     businessDesc[n]="A Bookstore dedicated to Stephen King" // description
     
@@ -1141,7 +1141,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Perk and Peak" // buisness name
     businessDesc[n]="A Designer clothing distributor" // description
     
@@ -1174,7 +1174,7 @@ n+=1; // change this first
 n+=1; // change this first
     investeeName[n]=name[round(random(numberOfNames))]
     
-    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker busnisses 
+    investementLevel[n]=choose(1,1,1,1,1,2,2,2,2,3,3,3,4,4,5); //Randomly Choose Business Level, heavy on the weaker businesses 
     businessName[n]="Neurocell" // buisness name
     businessDesc[n]="A Stemcell research lab" // description
     
