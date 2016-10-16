@@ -30,7 +30,7 @@ month=1 // for using time
 year=0 // year
 advTime=0 // for advancing time
 counter=0 // time counter
-eachMonth=2 // ticks per month (seconds)
+eachMonth=3 // ticks per month (seconds)
 tp_change=777 // third party change of state randomiser
 makeDeal=0 // state machine for making deals
 investmentCash=100000 // starting cash
@@ -420,25 +420,25 @@ if counter&gt;=eachMonth*room_speed // one month
         }
     counter=0
     // each party get diminished by the percentage of chance that it has inherited
-    if 1=clamp(round(random(50+tp_env_level*20)),1,200)
+    if 1=clamp(round(random(150+tp_env_level*20)),1,200)
     if tp_env_level&gt;-3 tp_env_level-=1
-    if 1=clamp(round(random(50+tp_ind_level*20)),1,200)
+    if 1=clamp(round(random(150+tp_ind_level*20)),1,200)
     if tp_ind_level&gt;-3 tp_ind_level-=1
-    if 1=clamp(round(random(50+tp_reg_level*20)),1,200)
+    if 1=clamp(round(random(150+tp_reg_level*20)),1,200)
     if tp_reg_level&gt;-3 tp_reg_level-=1
-    if 1=clamp(round(random(50+tp_res_level*20)),1,200)
+    if 1=clamp(round(random(150+tp_res_level*20)),1,200)
     if tp_res_level&gt;-3 tp_res_level-=1
-    if 1=clamp(round(random(50+tp_sci_level*20)),1,200)
+    if 1=clamp(round(random(150+tp_sci_level*20)),1,200)
     if tp_sci_level&gt;-3 tp_sci_level-=1 
-    if 1=clamp(round(random(50+tp_tec_level*20)),1,200)
+    if 1=clamp(round(random(150+tp_tec_level*20)),1,200)
     if tp_tec_level&gt;-3 tp_tec_level-=1  
-    if 1=clamp(round(random(50+tp_tra_level*20)),1,200)
+    if 1=clamp(round(random(150+tp_tra_level*20)),1,200)
     if tp_tra_level&gt;-3 tp_tra_level-=1
-    if 1=clamp(round(random(50+tp_med_level*20)),1,200)
+    if 1=clamp(round(random(150+tp_med_level*20)),1,200)
     if tp_med_level&gt;-3 tp_med_level-=1 
-    if 1=clamp(round(random(50+tp_pol_level*20)),1,200)
+    if 1=clamp(round(random(150+tp_pol_level*20)),1,200)
     if tp_pol_level&gt;-3 tp_pol_level-=1 
-    if 1=clamp(round(random(50+tp_eco_level*20)),1,200)
+    if 1=clamp(round(random(150+tp_eco_level*20)),1,200)
     if tp_eco_level&gt;-3 tp_eco_level-=1 
     }
     
