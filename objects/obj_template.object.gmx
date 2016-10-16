@@ -381,7 +381,8 @@ if counter&gt;=eachMonth*room_speed // one month
     for (p=0;p&lt;1000;p+=1)
         {
         // Initial Model // profits[p]= (((dealtAmount[p]*((100-dealtPercentage[p])+dealtPercentage[p])) * (dealtPercentage[p]/100)))/100 + ((thirdPartyArisk[p]*10000)+(thirdPartyBrisk[p]*10000)+(thirdPartyCrisk[p]*10000))
-        profits[p]= ((dealtAmount[p]*100)*(dealtPercentage[p]*0.001)) * ((thirdPartyArisk[p])+(thirdPartyBrisk[p])+(thirdPartyCrisk[p]))
+        // Model 1 // profits[p]= ((dealtAmount[p]*100)*(dealtPercentage[p]*0.001)) * ((thirdPartyArisk[p])+(thirdPartyBrisk[p])+(thirdPartyCrisk[p]))
+        profits[p]= ((dealtAmount[p]*100)*(dealtPercentage[p]*0.001)) * (((thirdPartyArisk[p])+(thirdPartyBrisk[p])+(thirdPartyCrisk[p]))*dealtPercentage[p]*0.01)
         }
     counter=0
     // each party get diminished by the percentage of chance that it has inherited
@@ -568,45 +569,45 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!="" and investmentCash-aski
         
         dealt[n]=true // for the investee (flag)
         getDeal=""
-
-        }
-    if getDeal="No" or getDeal="N" or getDeal="n"
-        {
-        negotiateDeal=get_string("Do you want to negotiate a deal? (Yes/No)","")
-        }   
-    if negotiateDeal="Yes" or negotiateDeal="Y" or negotiateDeal="y"
-        {
-        var amount, percent;
-        amount=get_string("How much are you offering?",string(askingAmount[n]))
-        percent=get_string("For what Percentage?",string(percentAmount[n]))
-        // now check to see if it is in range...
-        if real(percent)&gt;=percentAmount[n] and  real(percent)&lt;=percentMaxRisk[n]+percentMax[n] and real(amount)&gt;=(askingAmount[n]) and real(amount)&lt;=((askingAmount[n])+((askingAmount[n])*(percentAmount[n]/100)))
-            {
-            // agree the deal
-            dealsMade+=1
-            timeStamp[n]=month
-            invested[n]=real(amount)
-            percentage[n]=real(percent) // whats our cut?
-            term[n]=businessYears[n]*12 // number of months
-            investmentCash-=real(amount) // reduce cash u have
-            dealtAmount[n]=real(amount)
-            dealtPercentage[n]=real(percent)
-            // affect supported companies one off
-            // global updates to third parites
-            updateParties()
-
-            dealt[n]=true // for the investee (flag)
-            getDeal=""
-            //
-            }
-            
-        }
-    if negotiateDeal="No" or negotiateDeal="N" or negotiateDeal="n"
-        {
         makeDeal=0
-        dealt[n]=false 
-        getDeal=""
         }
+        if getDeal="No" or getDeal="N" or getDeal="n"
+            {
+            negotiateDeal=get_string("Do you want to negotiate a deal? (Yes/No)","")
+              
+        if negotiateDeal="Yes" or negotiateDeal="Y" or negotiateDeal="y"
+            {
+            var percent;
+            percent=get_string("What Percentage do you want?",string(percentAmount[n]))
+            // now check to see if it is in range...
+            if real(percent)&gt;=percentAmount[n] and real(percent)&lt;=percentMaxRisk[n]+percentMax[n] 
+                {
+                // agree the deal
+                dealsMade+=1
+                timeStamp[n]=month
+                invested[n]=askingAmount[n]
+                percentage[n]=real(percent) // whats our cut?
+                term[n]=businessYears[n]*12 // number of months
+                investmentCash-=askingAmount[n] // reduce cash u have
+                dealtAmount[n]=askingAmount[n]
+                dealtPercentage[n]=real(percent)
+                // affect supported companies one off
+                // global updates to third parites
+                updateParties()
+    
+                dealt[n]=true // for the investee (flag)
+                getDeal=""
+                makeDeal=0
+                //
+                }
+            } 
+            }
+        if negotiateDeal="No" or negotiateDeal="N" or negotiateDeal="n"
+            {
+            makeDeal=0
+            dealt[n]=false 
+            getDeal=""
+            }
     }
 
 </string>
@@ -705,7 +706,7 @@ else
     {
     draw_text(0,0,"Deal Made with "+string(investeeName[n])+" in the "+string(businessName[n])+" Business.")
     draw_text(0,10,"Invested : "+string(dealtAmount[n])+" for "+string(dealtPercentage[n])+"%")
-    draw_text(0,20,"Profit Forecast: $"+string( profits[n]))
+    draw_text(0,20,"Investors Share Forecast: $"+string( profits[n]))
     draw_text(0,30,"Expected on Month : "+string( timeStamp[n])+" and each subsequent 12 months.")
     
     if thirdPartyArisk[n]&lt;-2 draw_set_color(make_colour_rgb(128,0,128)) 
