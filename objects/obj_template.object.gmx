@@ -729,7 +729,7 @@ if sold[n]=true
     draw_text(x_pos,100,"Investee Name: "+string(investeeName[n]))
     draw_text(x_pos,115,"Business Level: "+string(investementLevel[n]))
     draw_text(x_pos,130,"Business Name: "+string(businessName[n]))
-    draw_text(x_pos,145,"Business Descritption: "+string(businessDesc[n]))
+    draw_text(x_pos,145,"Business Description: "+string(businessDesc[n]))
     draw_text(x_pos,165,"SOLD OUT!")
     }
 
@@ -739,7 +739,7 @@ if dealt[n]=false and sold[n]=false
     draw_text(x_pos,100,"Investee Name: "+string(investeeName[n]))
     draw_text(x_pos,115,"Business Level: "+string(investementLevel[n]))
     draw_text(x_pos,130,"Business Name: "+string(businessName[n]))
-    draw_text(x_pos,145,"Business Descritption: "+string(businessDesc[n]))
+    draw_text(x_pos,145,"Business Description: "+string(businessDesc[n]))
     draw_text(x_pos,165,"Asking amount is $"+string(askingAmount[n])+" for "+string(percentAmount[n])+"%")
     }
 
