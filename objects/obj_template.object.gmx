@@ -292,8 +292,8 @@ n=4; // change this first
     businessDesc[n]="A Medical Facility requiring investment to expand." // description
     
     //  ************* Be sure to change each pair of these tp_xxx and tp_xxx_level ****************
-    thirdPartyA[n]=tp_pol
-    thirdPartyArisk[n]=tp_pol_level // see init for definitions
+    thirdPartyA[n]=tp_ind
+    thirdPartyArisk[n]=tp_ind_level // see init for definitions
     
     thirdPartyB[n]=tp_sci
     thirdPartyBrisk[n]=tp_sci_level // 0 is green , 1 is orange, 2 is red
@@ -624,6 +624,7 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!="" and investmentCash-aski
         getDeal=""
         makeDeal=0
         }
+        
         if getDeal="No" or getDeal="N" or getDeal="n"
             {
             negotiateDeal=get_string("Do you want to negotiate a deal? (Yes/No)","")
