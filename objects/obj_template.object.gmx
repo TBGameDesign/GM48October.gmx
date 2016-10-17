@@ -1534,7 +1534,7 @@ var x_pos=130;
 
 if advTime=1 draw_text(x_pos,200,"MONTH: "+string(month)+"  YEAR: "+string(year))
 if advTime=0 draw_text(x_pos,200,"Time is off, press CTRL to toggle on/off.")
-if investmentCash-askingAmount[n]&lt;0 
+if investmentCash-askingAmount[n]&lt;0 and dealt[n]=false and sold[n]=false
 {
 draw_set_color(make_color_rgb(200,26,27))
 draw_text(x_pos,230,"CASH $"+string(investmentCash)+" NOT ENOUGH TO INVEST RIGHT NOW... come back later")
