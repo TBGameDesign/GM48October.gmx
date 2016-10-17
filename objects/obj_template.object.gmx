@@ -1195,8 +1195,8 @@ n+=1; // change this first
     // end of business idea
     
     // percentage system
-    percentMax[n] = 30 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 39 to 30, 21
-    percentAmount[n] = percentMax[n] div 2 // could be 19 to 15 to 10
+    percentMax[n] = 21 - (thirdPartyArisk[n]+thirdPartyBrisk[n]+thirdPartyCrisk[n]) // Could be 30 to 21, 12
+    percentAmount[n] = percentMax[n] div 2 // could be 15 to 10 to 6
     percentMaxRisk[n] = 9 - ( thirdPartyArisk[n] + thirdPartyBrisk[n] + thirdPartyCrisk[n] )
         
     // can be random range based on level
@@ -1209,7 +1209,23 @@ n+=1; // change this first
  
   
 // Do not alter anything Below..
+noOfBusinesses=n;
 n=0; // used for indexing do not remove
+
+// FOR EACH
+for (each=0;each&lt;1000;each+=1)
+    {
+    // percentage system
+    percentMax[each] = 21 - (thirdPartyArisk[each]+thirdPartyBrisk[each]+thirdPartyCrisk[each]) // Could be 30 to 21, 12
+    percentAmount[each] = percentMax[each] div 2 // could be 15 to 10 to 6
+    percentMaxRisk[each] = 9 - ( thirdPartyArisk[each] + thirdPartyBrisk[each] + thirdPartyCrisk[each] )
+        
+    // can be random range based on level
+    askingAmount[each]=irandom_range( percentAmount[each], percentMax[each] ) * ( 1000 * investementLevel[each] ) // amount needed
+    
+    //Overall Value of the business as a whole
+    busValue[each] = askingAmount[each] / ( percentAmount[each] / 100 );
+    }
 </string>
           </argument>
         </arguments>
@@ -1314,6 +1330,18 @@ for (nn=0;nn&lt;1000;nn+=1)
     
     }
     
+    // updated values and things of all
+    
+    for (each=0;each&lt;1000;each+=1)
+    {
+    // percentage system
+    percentMax[each] = 21 - (thirdPartyArisk[each]+thirdPartyBrisk[each]+thirdPartyCrisk[each]) // Could be 30 to 21, 12
+    percentAmount[each] = percentMax[each] div 2 // could be 15 to 10 to 6
+    percentMaxRisk[each] = 9 - ( thirdPartyArisk[each] + thirdPartyBrisk[each] + thirdPartyCrisk[each] )
+           
+    //Overall Value of the business as a whole
+    busValue[each] = askingAmount[each] / ( percentAmount[each] / 100 );
+    }
 
 
 </string>
@@ -1377,10 +1405,30 @@ if keyboard_check_pressed(vk_right)
     n+=1
     if investeeName[n]="" n-=1
     }
+
+if keyboard_check_pressed(vk_pageup) // find owned
+    {
+    while dealt[n+1]=false and n&lt;noOfBusinesses
+        {
+        n+=1
+        }
+    if dealt[n+1]=true
+        {n+=1}
+    }
     
-if keyboard_check_pressed(vk_left) 
+if keyboard_check_pressed(vk_left)
     {
     if n&gt;0 n-=1
+    }
+
+if keyboard_check_pressed(vk_pagedown) // find owned
+    {
+    while dealt[n-1]=false and n-1&gt;0
+        {
+        n-=1
+        }
+    if dealt[n-1]=true
+        {n-=1}
     }
     
 if keyboard_check_pressed(ord('R'))
@@ -1552,13 +1600,14 @@ draw_text(x_pos,510,"Pre-Alpha controls: Arrow Keys to browse investments")
 draw_text(x_pos,530,"Press 'R' to restart 'CTRL' will toggle time on/off") 
 draw_text(x_pos,550,"Press 'S' to sell out your investment.")
 draw_text(x_pos,570,"Space to invest or negotiate percentage.")
+draw_text(x_pos,590,"PGup/PGdn to scan investments / go to start/end.")
 
 draw_set_color(dark_color)
 if sold[n]=true
     {
-    draw_text(x_pos,75,"Investee Name: "+string(investeeName[n]))
+    draw_text(x_pos,75," SOLD OUT! ")
     draw_text(x_pos,100,"Business Level: "+string(investementLevel[n]))
-    draw_text(x_pos,125,"Business Name: "+string(businessName[n])+"SOLD OUT!")
+    draw_text(x_pos,125,"Business Name: "+string(businessName[n])+" SOLD OUT!")
     draw_text(x_pos,150,"Business Description: "+string(businessDesc[n]))
     }
 
