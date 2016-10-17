@@ -1546,7 +1546,7 @@ draw_set_color(dark_color)
 draw_text(x_pos,230,"CASH $"+string(investmentCash))
 }
 
-if investmentCash&lt;0  {draw_text(x_pos,245,"FAILED - No More Investment money left!! - Game over - Press R");advTime=0}
+if investmentCash&lt;0  {draw_text(x_pos,230,"FAILED - No More Investment money left!! - Game over - Press R");advTime=0}
 draw_set_color(light_color)
 draw_text(x_pos,510,"Pre-Alpha controls: Arrow Keys to browse investments")
 draw_text(x_pos,530,"Press 'R' to restart 'CTRL' will toggle time on/off") 
@@ -1558,9 +1558,8 @@ if sold[n]=true
     {
     draw_text(x_pos,75,"Investee Name: "+string(investeeName[n]))
     draw_text(x_pos,100,"Business Level: "+string(investementLevel[n]))
-    draw_text(x_pos,125,"Business Name: "+string(businessName[n]))
+    draw_text(x_pos,125,"Business Name: "+string(businessName[n])+"SOLD OUT!")
     draw_text(x_pos,150,"Business Description: "+string(businessDesc[n]))
-    draw_text(x_pos,180,"SOLD OUT!")
     }
 
 
