@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Template layout
+m=0 // for the paging
 start=true
 dark_color=make_color_rgb(55,76,67)
 light_color=make_color_rgb(160,190,175)
@@ -1421,14 +1422,14 @@ if keyboard_check_pressed(vk_left)
     if n&gt;0 n-=1
     }
 
-if keyboard_check_pressed(vk_pagedown) // find owned
+    
+if keyboard_check_pressed(vk_pagedown) and n&gt;-1  // find owned
     {
-    while dealt[n-1]=false and n-1&gt;0
+    for (a=n;a&gt;-1;a-=1)
         {
-        n-=1
+        if dealt[a]=true {m=a}
         }
-    if dealt[n-1]=true
-        {n-=1}
+    n=m
     }
     
 if keyboard_check_pressed(ord('R'))
@@ -1600,7 +1601,7 @@ draw_text(x_pos,510,"Pre-Alpha controls: Arrow Keys to browse investments")
 draw_text(x_pos,530,"Press 'R' to restart 'CTRL' will toggle time on/off") 
 draw_text(x_pos,550,"Press 'S' to sell out your investment.")
 draw_text(x_pos,570,"Space to invest or negotiate percentage.")
-draw_text(x_pos,590,"PGup/PGdn to scan investments / go to start/end.")
+draw_text(x_pos,590,"PgDn - Start of investments PgUp - step through")
 
 draw_set_color(dark_color)
 if sold[n]=true
