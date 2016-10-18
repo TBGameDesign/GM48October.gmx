@@ -1589,7 +1589,7 @@ draw_set_color(make_color_rgb(200,26,27))
 draw_text(x_pos,230,"CASH $"+string(investmentCash)+" NOT ENOUGH TO INVEST RIGHT NOW... come back later")
 }
 
-if investmentCash-askingAmount[n]&gt;=0 
+if investmentCash-askingAmount[n]&gt;=0 and dealt[n]=false and sold[n]=false
 {
 draw_set_color(dark_color)
 draw_text(x_pos,230,"CASH $"+string(investmentCash))
