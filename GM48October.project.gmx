@@ -68,6 +68,9 @@
     <script>scripts\draw_tpStuff.gml</script>
     <script>scripts\scr_TPR_switch.gml</script>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\sha_test.shader</shader>
+  </shaders>
   <fonts name="fonts">
     <font>fonts\Small_Font</font>
     <font>fonts\mainFont</font>
@@ -78,9 +81,11 @@
       <object>objects\obj_template</object>
       <object>objects\obj_quitButton</object>
       <object>objects\obj_Panel</object>
+      <object>objects\obj_ShaderTest</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\ShaderTest</room>
     <room>rooms\rm_testing</room>
   </rooms>
   <help>
