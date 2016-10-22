@@ -1478,8 +1478,8 @@ if keyboard_check_pressed(ord('S')) and dealt[n]=true and sold[n]=false // if se
             <string>/// check and update deals made
 if makeDeal=1 and dealt[n]=false and investeeName[n]!="" and investmentCash-askingAmount[n]&gt;0 and sold[n]=false
     {
-    getDeal=get_string("Do you want to make a deal? (Yes/No) (say No to negotiate)","")
-    if getDeal="Yes" or getDeal="Y" or getDeal="y"
+    //getDeal=get_string("Do you want to make a deal? (Yes/No) (say No to negotiate)","")
+    //if getDeal="Yes" or getDeal="Y" or getDeal="y"
         {
 
         // accepted main deal
@@ -1562,7 +1562,7 @@ if makeDeal=1 and dealt[n]=false and investeeName[n]!="" and investmentCash-aski
           <argument>
             <kind>1</kind>
             <string>/// Main for drawing
-
+draw_text(0,0,"X: "+string(mouse_x)+" Y: "+string(mouse_y))
 
 //draw_set_font(Small_Font)
 draw_set_font(mainFont)
@@ -1597,11 +1597,13 @@ draw_text(x_pos,230,"CASH $"+string(investmentCash))
 
 if investmentCash&lt;0  {draw_text(x_pos,230,"FAILED - No More Investment money left!! - Game over - Press R");advTime=0}
 draw_set_color(light_color)
+/*
 draw_text(x_pos,510,"Pre-Alpha controls: Arrow Keys to browse investments")
 draw_text(x_pos,530,"Press 'R' to restart 'CTRL' will toggle time on/off") 
 draw_text(x_pos,550,"Press 'S' to sell out your investment.")
 draw_text(x_pos,570,"Space to invest or negotiate percentage.")
 draw_text(x_pos,590,"PgDn - Start of investments PgUp - step through")
+*/
 
 draw_set_color(dark_color)
 if sold[n]=true

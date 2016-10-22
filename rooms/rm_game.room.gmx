@@ -3,8 +3,8 @@
   <caption></caption>
   <width>960</width>
   <height>640</height>
-  <vsnap>2</vsnap>
-  <hsnap>2</hsnap>
+  <vsnap>16</vsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
   <persistent>0</persistent>
@@ -53,8 +53,11 @@
   <instances>
     <instance objName="obj_template" x="64" y="32" name="inst_DF46174D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_quitButton" x="944" y="0" name="inst_E7E9D095" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_start" x="794" y="552" name="inst_45FA9CC0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_investments" x="648" y="556" name="inst_1EC06FA2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_start" x="896" y="608" name="inst_45FA9CC0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_investments" x="752" y="544" name="inst_1EC06FA2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_buttonLeft" x="60" y="280" name="inst_F81BA5C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_buttonRight" x="900" y="280" name="inst_6EAE71D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_accept" x="176" y="544" name="inst_F58028B1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

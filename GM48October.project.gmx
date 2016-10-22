@@ -18,7 +18,9 @@
       <sprite>sprites\spr_outline</sprite>
       <sprite>sprites\spr_begin</sprite>
       <sprite>sprites\spr_leftArrow</sprite>
+      <sprite>sprites\spr_notch</sprite>
       <sprite>sprites\spr_scrollbar</sprite>
+      <sprite>sprites\spr_accept</sprite>
       <sprite>sprites\spr_investments</sprite>
       <sprite>sprites\spr_invSheet</sprite>
       <sprite>sprites\spr_rightArrow</sprite>
@@ -40,6 +42,7 @@
   </shaders>
   <fonts name="fonts">
     <font>fonts\Small_Font</font>
+    <font>fonts\invFont</font>
     <font>fonts\mainFont</font>
     <font>fonts\font0</font>
   </fonts>
@@ -51,7 +54,10 @@
       <object>objects\obj_Panel</object>
       <object>objects\obj_ShaderTest</object>
       <object>objects\obj_investments</object>
+      <object>objects\obj_accept</object>
       <object>objects\obj_invSheet</object>
+      <object>objects\obj_buttonRight</object>
+      <object>objects\obj_buttonLeft</object>
     </objects>
   </objects>
   <rooms name="rooms">
