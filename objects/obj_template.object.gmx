@@ -28,6 +28,7 @@
             <string>/// Template layout
 m=0 // for the paging
 start=true
+fail=0
 dark_color=make_color_rgb(55,76,67)
 light_color=make_color_rgb(160,190,175)
 audio_play_sound(sou_music,1,1)
@@ -1249,100 +1250,102 @@ for (each=0;each&lt;1000;each+=1)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// increase time and do any other tweaks
-if advTime=1 counter+=1
-if counter&gt;=eachMonth*room_speed // one month
+            <string>if fail=0
     {
-    month+=1
-    // calc profits...
-    if month=13 {year+=1;month=1}
+
+    /// increase time and do any other tweaks
+    if advTime=1 counter+=1
+    if counter&gt;=eachMonth*room_speed // one month
+        {
+        month+=1
+        // calc profits...
+        if month=13 {year+=1;month=1}
+            for (each=0;each&lt;1000;each+=1)
+                {
+                profits[each]= ((busValue[each]*(dealtPercentage[each]))*0.001)
+                }
+        counter=0
+        // each party get diminished by the percentage of chance that it has inherited
+        if 1=clamp(round(random(150+tp_env_level*20)),1,200)
+        if tp_env_level&gt;-3 tp_env_level-=1
+        if 1=clamp(round(random(150+tp_ind_level*20)),1,200)
+        if tp_ind_level&gt;-3 tp_ind_level-=1
+        if 1=clamp(round(random(150+tp_reg_level*20)),1,200)
+        if tp_reg_level&gt;-3 tp_reg_level-=1
+        if 1=clamp(round(random(150+tp_res_level*20)),1,200)
+        if tp_res_level&gt;-3 tp_res_level-=1
+        if 1=clamp(round(random(150+tp_sci_level*20)),1,200)
+        if tp_sci_level&gt;-3 tp_sci_level-=1 
+        if 1=clamp(round(random(150+tp_tec_level*20)),1,200)
+        if tp_tec_level&gt;-3 tp_tec_level-=1  
+        if 1=clamp(round(random(150+tp_tra_level*20)),1,200)
+        if tp_tra_level&gt;-3 tp_tra_level-=1
+        if 1=clamp(round(random(150+tp_med_level*20)),1,200)
+        if tp_med_level&gt;-3 tp_med_level-=1 
+        if 1=clamp(round(random(150+tp_pol_level*20)),1,200)
+        if tp_pol_level&gt;-3 tp_pol_level-=1 
+        if 1=clamp(round(random(150+tp_eco_level*20)),1,200)
+        if tp_eco_level&gt;-3 tp_eco_level-=1 
+        }
+        
+    /* THESE WILL NOW BE TAPPED INTO DIRECTLY VIA A DEAL THAT IS CONNECTED TO THEM
+      
+    */
+    //update all businesses with this info...
+    
+    for (nn=0;nn&lt;1000;nn+=1)
+        {
+        
+        if thirdPartyA[nn]=tp_env thirdPartyArisk[nn]=tp_env_level
+        if thirdPartyA[nn]=tp_ind thirdPartyArisk[nn]=tp_ind_level
+        if thirdPartyA[nn]=tp_reg thirdPartyArisk[nn]=tp_reg_level
+        if thirdPartyA[nn]=tp_res thirdPartyArisk[nn]=tp_res_level
+        if thirdPartyA[nn]=tp_sci thirdPartyArisk[nn]=tp_sci_level
+        if thirdPartyA[nn]=tp_tec thirdPartyArisk[nn]=tp_tec_level
+        if thirdPartyA[nn]=tp_tra thirdPartyArisk[nn]=tp_tra_level
+        if thirdPartyA[nn]=tp_med thirdPartyArisk[nn]=tp_med_level
+        if thirdPartyA[nn]=tp_pol thirdPartyArisk[nn]=tp_pol_level
+        if thirdPartyA[nn]=tp_eco thirdPartyArisk[nn]=tp_eco_level
+        
+        if thirdPartyB[nn]=tp_env thirdPartyBrisk[nn]=tp_env_level
+        if thirdPartyB[nn]=tp_ind thirdPartyBrisk[nn]=tp_ind_level
+        if thirdPartyB[nn]=tp_reg thirdPartyBrisk[nn]=tp_reg_level
+        if thirdPartyB[nn]=tp_res thirdPartyBrisk[nn]=tp_res_level
+        if thirdPartyB[nn]=tp_sci thirdPartyBrisk[nn]=tp_sci_level
+        if thirdPartyB[nn]=tp_tec thirdPartyBrisk[nn]=tp_tec_level
+        if thirdPartyB[nn]=tp_tra thirdPartyBrisk[nn]=tp_tra_level
+        if thirdPartyB[nn]=tp_med thirdPartyBrisk[nn]=tp_med_level
+        if thirdPartyB[nn]=tp_pol thirdPartyBrisk[nn]=tp_pol_level
+        if thirdPartyB[nn]=tp_eco thirdPartyBrisk[nn]=tp_eco_level
+        
+        if thirdPartyC[nn]=tp_env thirdPartyCrisk[nn]=tp_env_level
+        if thirdPartyC[nn]=tp_ind thirdPartyCrisk[nn]=tp_ind_level
+        if thirdPartyC[nn]=tp_reg thirdPartyCrisk[nn]=tp_reg_level
+        if thirdPartyC[nn]=tp_res thirdPartyCrisk[nn]=tp_res_level
+        if thirdPartyC[nn]=tp_sci thirdPartyCrisk[nn]=tp_sci_level
+        if thirdPartyC[nn]=tp_tec thirdPartyCrisk[nn]=tp_tec_level
+        if thirdPartyC[nn]=tp_tra thirdPartyCrisk[nn]=tp_tra_level
+        if thirdPartyC[nn]=tp_med thirdPartyCrisk[nn]=tp_med_level
+        if thirdPartyC[nn]=tp_pol thirdPartyCrisk[nn]=tp_pol_level
+        if thirdPartyC[nn]=tp_eco thirdPartyCrisk[nn]=tp_eco_level
+
+        
+        }
+        
+        // updated values and things of all
+        
         for (each=0;each&lt;1000;each+=1)
-            {
-            profits[each]= ((busValue[each]*(dealtPercentage[each]))*0.001)
-            }
-    counter=0
-    // each party get diminished by the percentage of chance that it has inherited
-    if 1=clamp(round(random(150+tp_env_level*20)),1,200)
-    if tp_env_level&gt;-3 tp_env_level-=1
-    if 1=clamp(round(random(150+tp_ind_level*20)),1,200)
-    if tp_ind_level&gt;-3 tp_ind_level-=1
-    if 1=clamp(round(random(150+tp_reg_level*20)),1,200)
-    if tp_reg_level&gt;-3 tp_reg_level-=1
-    if 1=clamp(round(random(150+tp_res_level*20)),1,200)
-    if tp_res_level&gt;-3 tp_res_level-=1
-    if 1=clamp(round(random(150+tp_sci_level*20)),1,200)
-    if tp_sci_level&gt;-3 tp_sci_level-=1 
-    if 1=clamp(round(random(150+tp_tec_level*20)),1,200)
-    if tp_tec_level&gt;-3 tp_tec_level-=1  
-    if 1=clamp(round(random(150+tp_tra_level*20)),1,200)
-    if tp_tra_level&gt;-3 tp_tra_level-=1
-    if 1=clamp(round(random(150+tp_med_level*20)),1,200)
-    if tp_med_level&gt;-3 tp_med_level-=1 
-    if 1=clamp(round(random(150+tp_pol_level*20)),1,200)
-    if tp_pol_level&gt;-3 tp_pol_level-=1 
-    if 1=clamp(round(random(150+tp_eco_level*20)),1,200)
-    if tp_eco_level&gt;-3 tp_eco_level-=1 
+        {
+        // percentage system
+        percentMax[each] = 21 - (thirdPartyArisk[each]+thirdPartyBrisk[each]+thirdPartyCrisk[each]) // Could be 30 to 21, 12
+        percentAmount[each] = percentMax[each] div 2 // could be 15 to 10 to 6
+        percentMaxRisk[each] = 9 - ( thirdPartyArisk[each] + thirdPartyBrisk[each] + thirdPartyCrisk[each] )
+               
+        //Overall Value of the business as a whole
+        busValue[each] = round(askingAmount[each] * ( percentAmount[each]* (((thirdPartyArisk[each])+(thirdPartyBrisk[each])+(thirdPartyCrisk[each]))))/1000)*1000
+        
+        }
     }
-    
-/* THESE WILL NOW BE TAPPED INTO DIRECTLY VIA A DEAL THAT IS CONNECTED TO THEM
-  
-*/
-//update all businesses with this info...
-
-for (nn=0;nn&lt;1000;nn+=1)
-    {
-    
-    if thirdPartyA[nn]=tp_env thirdPartyArisk[nn]=tp_env_level
-    if thirdPartyA[nn]=tp_ind thirdPartyArisk[nn]=tp_ind_level
-    if thirdPartyA[nn]=tp_reg thirdPartyArisk[nn]=tp_reg_level
-    if thirdPartyA[nn]=tp_res thirdPartyArisk[nn]=tp_res_level
-    if thirdPartyA[nn]=tp_sci thirdPartyArisk[nn]=tp_sci_level
-    if thirdPartyA[nn]=tp_tec thirdPartyArisk[nn]=tp_tec_level
-    if thirdPartyA[nn]=tp_tra thirdPartyArisk[nn]=tp_tra_level
-    if thirdPartyA[nn]=tp_med thirdPartyArisk[nn]=tp_med_level
-    if thirdPartyA[nn]=tp_pol thirdPartyArisk[nn]=tp_pol_level
-    if thirdPartyA[nn]=tp_eco thirdPartyArisk[nn]=tp_eco_level
-    
-    if thirdPartyB[nn]=tp_env thirdPartyBrisk[nn]=tp_env_level
-    if thirdPartyB[nn]=tp_ind thirdPartyBrisk[nn]=tp_ind_level
-    if thirdPartyB[nn]=tp_reg thirdPartyBrisk[nn]=tp_reg_level
-    if thirdPartyB[nn]=tp_res thirdPartyBrisk[nn]=tp_res_level
-    if thirdPartyB[nn]=tp_sci thirdPartyBrisk[nn]=tp_sci_level
-    if thirdPartyB[nn]=tp_tec thirdPartyBrisk[nn]=tp_tec_level
-    if thirdPartyB[nn]=tp_tra thirdPartyBrisk[nn]=tp_tra_level
-    if thirdPartyB[nn]=tp_med thirdPartyBrisk[nn]=tp_med_level
-    if thirdPartyB[nn]=tp_pol thirdPartyBrisk[nn]=tp_pol_level
-    if thirdPartyB[nn]=tp_eco thirdPartyBrisk[nn]=tp_eco_level
-    
-    if thirdPartyC[nn]=tp_env thirdPartyCrisk[nn]=tp_env_level
-    if thirdPartyC[nn]=tp_ind thirdPartyCrisk[nn]=tp_ind_level
-    if thirdPartyC[nn]=tp_reg thirdPartyCrisk[nn]=tp_reg_level
-    if thirdPartyC[nn]=tp_res thirdPartyCrisk[nn]=tp_res_level
-    if thirdPartyC[nn]=tp_sci thirdPartyCrisk[nn]=tp_sci_level
-    if thirdPartyC[nn]=tp_tec thirdPartyCrisk[nn]=tp_tec_level
-    if thirdPartyC[nn]=tp_tra thirdPartyCrisk[nn]=tp_tra_level
-    if thirdPartyC[nn]=tp_med thirdPartyCrisk[nn]=tp_med_level
-    if thirdPartyC[nn]=tp_pol thirdPartyCrisk[nn]=tp_pol_level
-    if thirdPartyC[nn]=tp_eco thirdPartyCrisk[nn]=tp_eco_level
-    
-    //percentMaxRisk[nn]=(thirdPartyArisk[nn]+thirdPartyBrisk[nn]+thirdPartyCrisk[nn])*5
-    
-    }
-    
-    // updated values and things of all
-    
-    for (each=0;each&lt;1000;each+=1)
-    {
-    // percentage system
-    percentMax[each] = 21 - (thirdPartyArisk[each]+thirdPartyBrisk[each]+thirdPartyCrisk[each]) // Could be 30 to 21, 12
-    percentAmount[each] = percentMax[each] div 2 // could be 15 to 10 to 6
-    percentMaxRisk[each] = 9 - ( thirdPartyArisk[each] + thirdPartyBrisk[each] + thirdPartyCrisk[each] )
-           
-    //Overall Value of the business as a whole
-    busValue[each] = askingAmount[each] * ( percentAmount[each]* (((thirdPartyArisk[each])+(thirdPartyBrisk[each])+(thirdPartyCrisk[each]))))
-    
-    }
-
 
 </string>
           </argument>
@@ -1365,17 +1368,20 @@ for (nn=0;nn&lt;1000;nn+=1)
           <argument>
             <kind>1</kind>
             <string>/// Profits
-for (j=0;j&lt;1000;j+=1)
+if fail=0
     {
-    if timeStamp[j]&gt;0 // a month
+    for (j=0;j&lt;1000;j+=1)
         {
-        if  month = (timeStamp[j]) and timeStampPaid[j]=0 // end of a year for any particular company and not paid yet
+        if timeStamp[j]&gt;0 // a month
             {
-                if  dealt[j]=true and sold[j]=false {investmentCash+=profits[j]}
-                timeStampPaid[j]=1
-            }           
-            if (timeStamp[j]+1=13 and month=1) or (timeStamp[j]+1=month) timeStampPaid[j]=0
-            
+            if  month = (timeStamp[j]) and timeStampPaid[j]=0 // end of a year for any particular company and not paid yet
+                {
+                    if  dealt[j]=true and sold[j]=false {investmentCash+=profits[j]}
+                    timeStampPaid[j]=1
+                }           
+                if (timeStamp[j]+1=13 and month=1) or (timeStamp[j]+1=month) timeStampPaid[j]=0
+                
+            }
         }
     }
 </string>
@@ -1476,68 +1482,72 @@ if keyboard_check_pressed(ord('S')) and dealt[n]=true and sold[n]=false // if se
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// check and update deals made
-if makeDeal=1 and dealt[n]=false and investeeName[n]!="" and investmentCash-askingAmount[n]&gt;0 and sold[n]=false
+            <string>if fail=0
     {
-    //getDeal=get_string("Do you want to make a deal? (Yes/No) (say No to negotiate)","")
-    //if getDeal="Yes" or getDeal="Y" or getDeal="y"
-        {
 
-        // accepted main deal
-        dealsMade+=1
-        timeStamp[n]=month  
-        invested[n]=askingAmount[n] // for the player
-        percentage[n]=percentAmount[n] // whats our cut?
-        term[n]=businessYears[n]*12 // number of months
-        investmentCash-=askingAmount[n] // reduce cash u have
-        dealtAmount[n]=askingAmount[n]
-        dealtPercentage[n]=percentAmount[n]
-        // affect supported companies one off
-        
-        // global updates to third parites
-        updateParties()
-        
-        dealt[n]=true // for the investee (flag)
-        getDeal=""
-        makeDeal=0
-        }
-        
-        if getDeal="No" or getDeal="N" or getDeal="n"
+    /// check and update deals made
+    if makeDeal=1 and dealt[n]=false and investeeName[n]!="" and investmentCash-askingAmount[n]&gt;0 and sold[n]=false
+        {
+        //getDeal=get_string("Do you want to make a deal? (Yes/No) (say No to negotiate)","")
+        //if getDeal="Yes" or getDeal="Y" or getDeal="y"
             {
-            negotiateDeal=get_string("Do you want to negotiate a deal? (Yes/No)","")
-              
-        if negotiateDeal="Yes" or negotiateDeal="Y" or negotiateDeal="y"
-            {
-            var percent;
-            percent=get_string("What Percentage do you want?",string(percentAmount[n]))
-            // now check to see if it is in range...
-            if real(percent)&gt;=percentAmount[n] and real(percent)&lt;=percentMaxRisk[n]+percentMax[n] 
-                {
-                // agree the deal
-                dealsMade+=1
-                timeStamp[n]=month
-                invested[n]=askingAmount[n]
-                percentage[n]=real(percent) // whats our cut?
-                term[n]=businessYears[n]*12 // number of months
-                investmentCash-=askingAmount[n] // reduce cash u have
-                dealtAmount[n]=askingAmount[n]
-                dealtPercentage[n]=real(percent)
-                // affect supported companies one off
-                // global updates to third parites
-                updateParties()
-                dealt[n]=true // for the investee (flag)
-                getDeal=""
-                makeDeal=0
-                //
-                }
-            } 
-            }
-        if negotiateDeal="No" or negotiateDeal="N" or negotiateDeal="n"
-            {
-            makeDeal=0
-            dealt[n]=false 
+    
+            // accepted main deal
+            dealsMade+=1
+            timeStamp[n]=month  
+            invested[n]=askingAmount[n] // for the player
+            percentage[n]=percentAmount[n] // whats our cut?
+            term[n]=businessYears[n]*12 // number of months
+            investmentCash-=askingAmount[n] // reduce cash u have
+            dealtAmount[n]=askingAmount[n]
+            dealtPercentage[n]=percentAmount[n]
+            // affect supported companies one off
+            
+            // global updates to third parites
+            updateParties()
+            
+            dealt[n]=true // for the investee (flag)
             getDeal=""
+            makeDeal=0
             }
+            
+            if getDeal="No" or getDeal="N" or getDeal="n"
+                {
+                negotiateDeal=get_string("Do you want to negotiate a deal? (Yes/No)","")
+                  
+            if negotiateDeal="Yes" or negotiateDeal="Y" or negotiateDeal="y"
+                {
+                var percent;
+                percent=get_string("What Percentage do you want?",string(percentAmount[n]))
+                // now check to see if it is in range...
+                if real(percent)&gt;=percentAmount[n] and real(percent)&lt;=percentMaxRisk[n]+percentMax[n] 
+                    {
+                    // agree the deal
+                    dealsMade+=1
+                    timeStamp[n]=month
+                    invested[n]=askingAmount[n]
+                    percentage[n]=real(percent) // whats our cut?
+                    term[n]=businessYears[n]*12 // number of months
+                    investmentCash-=askingAmount[n] // reduce cash u have
+                    dealtAmount[n]=askingAmount[n]
+                    dealtPercentage[n]=real(percent)
+                    // affect supported companies one off
+                    // global updates to third parites
+                    updateParties()
+                    dealt[n]=true // for the investee (flag)
+                    getDeal=""
+                    makeDeal=0
+                    //
+                    }
+                } 
+                }
+            if negotiateDeal="No" or negotiateDeal="N" or negotiateDeal="n"
+                {
+                makeDeal=0
+                dealt[n]=false 
+                getDeal=""
+                }
+        }
     }
 
 </string>
@@ -1599,7 +1609,7 @@ draw_set_color(dark_color)
 draw_text(x_pos,230,"CASH $"+string(investmentCash))
 }
 
-if investmentCash&lt;0  {draw_text(x_pos,230,"FAILED - No More Investment money left!! - Game over - Press R");advTime=0}
+if investmentCash&lt;0  {draw_set_color(make_color_rgb(200,26,27));draw_text(x_pos,330,"FAILED - No More Investment money left!! - Game over - Press R");advTime=0;fail=1}
 draw_set_color(light_color)
 /*
 if investmentCash-askingAmount[n]&gt;=0 and dealt[n]=false and sold[n]=false

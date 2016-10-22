@@ -28,7 +28,8 @@
             <string>   
 with (obj_template)
         {
-        if eachMonth&gt;2 eachMonth-=1 // decrease time
+        
+        if eachMonth&lt;10 eachMonth+=1 // increase time
         }
 </string>
           </argument>
