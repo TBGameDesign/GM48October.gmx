@@ -32,6 +32,7 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bg_mask</background>
+    <background>background\bg_start</background>
     <background>background\bg_game</background>
   </backgrounds>
   <paths name="paths"/>
@@ -66,9 +67,11 @@
       <object>objects\obj_invSheet</object>
       <object>objects\obj_buttonRight</object>
       <object>objects\obj_buttonLeft</object>
+      <object>objects\obj_version</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_start</room>
     <room>rooms\rm_game</room>
   </rooms>
   <help>

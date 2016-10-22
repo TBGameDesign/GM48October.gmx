@@ -28,7 +28,8 @@
             <string>   
 with (obj_template)
         {
-        if eachMonth&gt;0 eachMonth-=1 // decrease time
+        if eachMonth&gt;1 eachMonth-=1 // decrease time
+        audio_sound_pitch(sou_music,1+((10-eachMonth)/10))
         }
 </string>
           </argument>
