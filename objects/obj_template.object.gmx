@@ -1256,12 +1256,10 @@ if counter&gt;=eachMonth*room_speed // one month
     month+=1
     // calc profits...
     if month=13 {year+=1;month=1}
-    for (p=0;p&lt;1000;p+=1)
-        {
-        // Initial Model // profits[p]= (((dealtAmount[p]*((100-dealtPercentage[p])+dealtPercentage[p])) * (dealtPercentage[p]/100)))/100 + ((thirdPartyArisk[p]*10000)+(thirdPartyBrisk[p]*10000)+(thirdPartyCrisk[p]*10000))
-        // Model 1 // profits[p]= ((dealtAmount[p]*100)*(dealtPercentage[p]*0.001)) * ((thirdPartyArisk[p])+(thirdPartyBrisk[p])+(thirdPartyCrisk[p]))
-        profits[p]= ((dealtAmount[p]*100)*(dealtPercentage[p]*0.001)) * (((thirdPartyArisk[p])+(thirdPartyBrisk[p])+(thirdPartyCrisk[p]))*dealtPercentage[p]*0.01)
-        }
+        for (each=0;each&lt;1000;each+=1)
+            {
+            profits[each]= ((busValue[each]*(dealtPercentage[each]))*0.001)
+            }
     counter=0
     // each party get diminished by the percentage of chance that it has inherited
     if 1=clamp(round(random(150+tp_env_level*20)),1,200)
@@ -1341,7 +1339,8 @@ for (nn=0;nn&lt;1000;nn+=1)
     percentMaxRisk[each] = 9 - ( thirdPartyArisk[each] + thirdPartyBrisk[each] + thirdPartyCrisk[each] )
            
     //Overall Value of the business as a whole
-    busValue[each] = askingAmount[each] / ( percentAmount[each] / 100 );
+    busValue[each] = askingAmount[each] * ( percentAmount[each]* (((thirdPartyArisk[each])+(thirdPartyBrisk[each])+(thirdPartyCrisk[each]))))
+    
     }
 
 
@@ -1578,11 +1577,15 @@ for (n=0;n&lt;50;n+=1)
 draw_text(200,0,string(numberOfNames))
 */
 draw_set_color(dark_color)
+draw_set_halign(fa_center)
+var x_pos=room_width/2;
 
+
+if advTime=1 draw_text(x_pos,340,"MONTH: "+string(month)+"  YEAR: "+string(year))
+if advTime=0 draw_text(x_pos,340,"Time is off, press CTRL to toggle on/off.")
+
+draw_set_halign(fa_left)
 var x_pos=130;
-
-if advTime=1 draw_text(x_pos,200,"MONTH: "+string(month)+"  YEAR: "+string(year))
-if advTime=0 draw_text(x_pos,200,"Time is off, press CTRL to toggle on/off.")
 if investmentCash-askingAmount[n]&lt;0 and dealt[n]=false and sold[n]=false
 {
 draw_set_color(make_color_rgb(200,26,27))
