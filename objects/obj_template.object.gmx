@@ -1588,8 +1588,7 @@ if investmentCash-askingAmount[n]&lt;0 and dealt[n]=false and sold[n]=false
 draw_set_color(make_color_rgb(200,26,27))
 draw_text(x_pos,230,"CASH $"+string(investmentCash)+" NOT ENOUGH TO INVEST RIGHT NOW... come back later")
 }
-
-if investmentCash-askingAmount[n]&gt;=0 and dealt[n]=false and sold[n]=false
+else
 {
 draw_set_color(dark_color)
 draw_text(x_pos,230,"CASH $"+string(investmentCash))
@@ -1598,6 +1597,15 @@ draw_text(x_pos,230,"CASH $"+string(investmentCash))
 if investmentCash&lt;0  {draw_text(x_pos,230,"FAILED - No More Investment money left!! - Game over - Press R");advTime=0}
 draw_set_color(light_color)
 /*
+if investmentCash-askingAmount[n]&gt;=0 and dealt[n]=false and sold[n]=false
+{
+draw_set_color(dark_color)
+draw_text(x_pos,230,"CASH $"+string(investmentCash))
+}
+*/
+
+
+/*
 draw_text(x_pos,510,"Pre-Alpha controls: Arrow Keys to browse investments")
 draw_text(x_pos,530,"Press 'R' to restart 'CTRL' will toggle time on/off") 
 draw_text(x_pos,550,"Press 'S' to sell out your investment.")
@@ -1605,9 +1613,10 @@ draw_text(x_pos,570,"Space to invest or negotiate percentage.")
 draw_text(x_pos,590,"PgDn - Start of investments PgUp - step through")
 */
 
-draw_set_color(dark_color)
+
 if sold[n]=true
     {
+    draw_set_color(c_olive);
     draw_text(x_pos,75," SOLD OUT! ")
     draw_text(x_pos,100,"Business Level: "+string(investementLevel[n]))
     draw_text(x_pos,125,"Business Name: "+string(businessName[n])+" SOLD OUT!")
@@ -1617,6 +1626,7 @@ if sold[n]=true
 
 if dealt[n]=false and sold[n]=false
     {
+    draw_set_color(dark_color)
     draw_text(x_pos,75,"Investee Name: "+string(investeeName[n]))
     draw_text(x_pos,100,"Business Level: "+string(investementLevel[n]))
     draw_text(x_pos,125,"Business Name: "+string(businessName[n]))
@@ -1626,6 +1636,7 @@ if dealt[n]=false and sold[n]=false
 
 if dealt[n]=true and sold[n]=false
     {
+    draw_set_color(c_teal);
     draw_text(x_pos,75,"Deal Made with "+string(investeeName[n])+" in the "+string(businessName[n])+" Business.")
     draw_text(x_pos,100,"Invested : "+string(dealtAmount[n])+" for "+string(dealtPercentage[n])+"%")
     draw_text(x_pos,125,"Investors Share Forecast: $"+string( profits[n]))
