@@ -38,6 +38,6 @@ void main()
     Color.r =0.5;
     gl_FragColor = Color * texture2D( gm_BaseTexture, v_vTexcoord );
    
-    //gl_FragColor = v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
+
 }
 

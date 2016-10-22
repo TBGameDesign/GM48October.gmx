@@ -8,35 +8,6 @@
     <sound>sound\sou_music</sound>
   </sounds>
   <sprites name="sprites">
-    <sprites name="Player">
-      <sprite>sprites\s_Player_1</sprite>
-      <sprite>sprites\s_Player2</sprite>
-      <sprite>sprites\s_Player3</sprite>
-      <sprite>sprites\s_Player4</sprite>
-    </sprites>
-    <sprites name="World">
-      <sprite>sprites\s_TemplateGrass</sprite>
-      <sprite>sprites\s_TemplateDirt</sprite>
-      <sprite>sprites\s_TemplateSand</sprite>
-      <sprite>sprites\s_TemplateRock</sprite>
-      <sprite>sprites\s_TemplateWater</sprite>
-      <sprites name="WorldDetail">
-        <sprite>sprites\s_TemplateTree1</sprite>
-        <sprite>sprites\s_TemplateTree2</sprite>
-      </sprites>
-    </sprites>
-    <sprites name="Enemies">
-      <sprite>sprites\s_Enemy1</sprite>
-      <sprite>sprites\s_Enemy2</sprite>
-      <sprite>sprites\s_Enemy3</sprite>
-      <sprite>sprites\s_Enemy4</sprite>
-    </sprites>
-    <sprites name="Effects">
-      <sprite>sprites\spr_Effect0</sprite>
-      <sprite>sprites\spr_Effect1</sprite>
-      <sprite>sprites\spr_Effect2</sprite>
-      <sprite>sprites\spr_Effect3</sprite>
-    </sprites>
     <sprites name="GUI">
       <sprite>sprites\spr_exit</sprite>
       <sprite>sprites\spr_bar</sprite>
@@ -47,22 +18,17 @@
       <sprite>sprites\spr_outline</sprite>
       <sprite>sprites\spr_begin</sprite>
       <sprite>sprites\spr_leftArrow</sprite>
+      <sprite>sprites\spr_scrollbar</sprite>
+      <sprite>sprites\spr_investments</sprite>
+      <sprite>sprites\spr_invSheet</sprite>
       <sprite>sprites\spr_rightArrow</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\bg_0</background>
-    <background>background\bg_1</background>
-    <background>background\bg_2</background>
-    <background>background\bg_3</background>
+    <background>background\bg_mask</background>
     <background>background\bg_game</background>
   </backgrounds>
-  <paths name="paths">
-    <path>paths\path_temp0</path>
-    <path>paths\path_temp1</path>
-    <path>paths\path_temp2</path>
-    <path>paths\path_temp3</path>
-  </paths>
+  <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\updateParties.gml</script>
     <script>scripts\draw_tpStuff.gml</script>
@@ -70,10 +36,12 @@
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\sha_test.shader</shader>
+    <shader type="GLSLES">shaders\shd_masker.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\Small_Font</font>
     <font>fonts\mainFont</font>
+    <font>fonts\font0</font>
   </fonts>
   <objects name="objects">
     <objects name="Management">
@@ -82,11 +50,12 @@
       <object>objects\obj_quitButton</object>
       <object>objects\obj_Panel</object>
       <object>objects\obj_ShaderTest</object>
+      <object>objects\obj_investments</object>
+      <object>objects\obj_invSheet</object>
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\ShaderTest</room>
-    <room>rooms\rm_testing</room>
+    <room>rooms\rm_game</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

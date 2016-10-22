@@ -25,13 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>samp_mask_tex = shader_get_sampler_index(shd_masker, "s_maskMap");
+            <string>draw_enable_alphablend(true);
+draw_set_color(c_white);
 
-bg_Mask_Tex = background_get_texture(bg_mask);
+glow_pass_surface = surface_create(view_wview[0], view_hview[0]);
 
-surf = surface_create(room_width, room_height);
+samp_glow_surface =   shader_get_sampler_index(shd_glow_map, "s_glow_surface");
+uni_glow_blur_sigma = shader_get_uniform(shd_glow_map, "u_glow_blur_sigma");
+uni_glow_resolution =   shader_get_uniform(shd_glow_map, "u_glow_resolution");
 
-
+var_sigma = 0;
+pulse_speed = 0.05;
 </string>
           </argument>
         </arguments>
@@ -54,13 +58,66 @@ surf = surface_create(room_width, room_height);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>surface_set_target(surf);
-draw_clear_alpha(c_white,0);
-draw_sprite(spr_begin,0,mouse_x,mouse_y);
+            <string>///Draw glow map sprites to surface
+
+surface_set_target(glow_pass_surface);
+    draw_clear_alpha(c_black, 1.0);
+    
+    with (par_is_glow_background) {
+        draw_background(__glow_texture, x - view_xview[0], y - view_yview[0]);
+    }
+    
+    with (par_is_glow_sprite) {
+        draw_sprite(__glow_texture, -1, x - view_xview[0], y - view_yview[0]);
+    }
+    
 surface_reset_target();
-
-
-
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="61">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>pulse_speed -= 0.005;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="60">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>pulse_speed += 0.005;
 </string>
           </argument>
         </arguments>
@@ -83,16 +140,16 @@ surface_reset_target();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-
-shader_set(shd_masker);
-texture_set_stage(samp_mask_tex , bg_Mask_Tex );
-draw_surface(surf,0,0)
+            <string>var_sigma += pulse_speed;
+    
+shader_set(shd_glow_map);
+    shader_set_uniform_f(uni_glow_blur_sigma, sin(var_sigma));
+    shader_set_uniform_f(uni_glow_resolution, surface_get_width(glow_pass_surface), surface_get_height(glow_pass_surface));
+    texture_set_stage(samp_glow_surface, surface_get_texture(glow_pass_surface));
+    draw_surface(application_surface, 0, 0);
 shader_reset();
 
-
-
-
+draw_text(0, 0, "Glow pulse speed (Mouse wheel to change) = " + string(pulse_speed));
 </string>
           </argument>
         </arguments>
