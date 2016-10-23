@@ -1616,7 +1616,7 @@ if keyboard_check_pressed(ord('S')) and dealt[n]=true and sold[n]=false // if se
             <kind>1</kind>
             <string>/// Main for drawing
 draw_text(0,0,"X: "+string(mouse_x)+" Y: "+string(mouse_y))
-
+draw_text(0,20,"N :"+string(n))
 //draw_set_font(Small_Font)
 draw_set_font(mainFont)
 draw_tpStuff() // draw links

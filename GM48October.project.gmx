@@ -23,6 +23,7 @@
       <sprite>sprites\spr_timeToggle</sprite>
       <sprite>sprites\spr_sell</sprite>
       <sprite>sprites\spr_accept</sprite>
+      <sprite>sprites\spr_invest</sprite>
       <sprite>sprites\spr_investments</sprite>
       <sprite>sprites\spr_invSheet</sprite>
       <sprite>sprites\spr_add</sprite>
